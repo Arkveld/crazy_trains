@@ -7,6 +7,7 @@
 <title>Inscription </title>
 </head>
 <body>
- <h2> Formulaire d'inscription </h2>
+	<h1> Page d'inscription </h1>
+    <h2> Formulaire d'inscription </h2>
 </body>
 </html>

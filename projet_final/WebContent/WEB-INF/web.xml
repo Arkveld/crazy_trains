@@ -9,6 +9,17 @@
 	</welcome-file-list>
 	
 	<!-- Servlets  -->
+	
+	<servlet>
+		<servlet-name> Home </servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Home</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Home </servlet-name>
+		<url-pattern> / </url-pattern>
+	</servlet-mapping>
+	
+	
 	<servlet>
 		<servlet-name> Register </servlet-name>
 		<servlet-class> fr.org.projetfinal.controller.Register</servlet-class>
@@ -17,4 +28,5 @@
 		<servlet-name> Register </servlet-name>
 		<url-pattern> /register </url-pattern>
 	</servlet-mapping>
+	
 </web-app>
