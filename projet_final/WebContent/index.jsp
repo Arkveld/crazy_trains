@@ -6,5 +6,6 @@
 </head>
 <body>
 	<h1> Page d'accueil </h1>
+	<a href="/projet_final/register"> S'inscrire</a>
 </body>
 </html>
