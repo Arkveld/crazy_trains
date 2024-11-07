@@ -10,8 +10,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.org.projetfinal.metier.IUserMetier;
+import fr.org.projetfinal.metier.UserMetierImp;
+
 @WebServlet(name = "/Register")
 public class Register extends HttpServlet {
+	
+	private IUserMetier metier;
+	
+	@Override
+	public void init() throws ServletException {
+		metier = new UserMetierImp();
+	}
 	
 	
 	@Override
@@ -31,17 +41,33 @@ public class Register extends HttpServlet {
 		String role = request.getParameter("role");
 		
 		//Vérification du format des données (REGEX java)
-		Pattern pattern = Pattern.compile("^[a-zA-Z]{1,32}$");
+		boolean inputNom = metier.verifyInput("^[a-zA-Z]{1,32}$", nom);
+		boolean inputPrenom = metier.verifyInput("^[a-zA-Z]{1,32}$", prenom);
+		boolean inputMail = metier.verifyInput("^[a-z]{1,32}\\.[a-zA-z]{1,32}\\@[a-z]{1,10}\\.[a-z]{1,3}$", mail);
+		
+		if(!inputNom) {
+			System.out.println("Veuillez respecter le format");
+		}
+		
+		if(!inputPrenom) {
+			System.out.println("Veuillez respecter le format");
+		}
+		
+		if(!inputMail) {
+			System.out.println("Mail invalide");
+		}
+		
+		
+		
+		
+		/*Pattern pattern = Pattern.compile("");
 		Matcher matcher = pattern.matcher(nom);
 		boolean matchFound = matcher.find();
-		System.out.println(matchFound);
+		System.out.println(matchFound);*/
 		System.out.println("Nom: " + nom);
 		
 		
-		System.out.println("Prénom: " + prenom);
-		System.out.println("Mail: " + mail);
-		System.out.println("Password: " + password);
-		System.out.println("Role: " + role);
+		
 		
 	}
 
