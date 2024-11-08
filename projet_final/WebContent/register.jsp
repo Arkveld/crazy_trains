@@ -37,6 +37,6 @@
     	
     	<input type="submit" value="Valider" />
     </form>
-    
+    <a href="/projet_final/"> Retour à l'accueil</a>
 </body>
 </html>

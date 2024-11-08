@@ -3,6 +3,8 @@ package fr.org.projetfinal.bdd;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+
+
 public class MyConnectionSQL {
 	
 	private static Connection instance;
@@ -15,7 +17,8 @@ public class MyConnectionSQL {
 	public static Connection getInstance() {
 		
 		if(instance == null) {
-			instance = new MyConnectionSQL().getConnection();
+			
+			return new MyConnectionSQL().getConnection();
 		}
 		
 		return instance;
