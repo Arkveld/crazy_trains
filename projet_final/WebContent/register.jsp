@@ -8,6 +8,13 @@
 </head>
 <body>
 	<h1> Page d'inscription </h1>
+	
+	<h2> Question </h2>
+	
+	<c:forEach items="${questions}" var="question">
+		<p> <c:out value="${question.question}"/></p>
+	</c:forEach>
+	
     <h2> Formulaire d'inscription </h2>
     <form method="post" action="">
     	<div>
@@ -30,5 +37,6 @@
     	
     	<input type="submit" value="Valider" />
     </form>
+    
 </body>
 </html>
