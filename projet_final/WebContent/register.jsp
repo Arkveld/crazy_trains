@@ -9,7 +9,7 @@
 <body>
 	<h1>Page d'inscription</h1>
 	<h2>Formulaire d'inscription</h2>
-	<form method="post" action="">
+	<form method="post" action="register">
 		<div>
 			<label for="nom"> Nom </label> <input type="text" name="nom"
 				pattern="[a-zA-Z]{1,32}" required="required">

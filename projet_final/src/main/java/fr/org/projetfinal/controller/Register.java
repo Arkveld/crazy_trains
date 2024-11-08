@@ -2,8 +2,7 @@ package fr.org.projetfinal.controller;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,10 +15,12 @@ import fr.org.projetfinal.metier.IUserMetier;
 import fr.org.projetfinal.metier.QuestionMetierImp;
 import fr.org.projetfinal.metier.UserMetierImp;
 import fr.org.projetfinal.model.Question;
+import fr.org.projetfinal.model.User;
 
 @WebServlet(name = "/Register")
 public class Register extends HttpServlet {
 	
+	private static final long serialVersionUID = 1L;
 	private IUserMetier metier;
 	private IQuestionMetier questionMetier;
 	
@@ -54,6 +55,9 @@ public class Register extends HttpServlet {
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
 		String role = request.getParameter("role");
+		int questionId = Integer.parseInt(request.getParameter("question"));
+		String reponse = request.getParameter("reponse");
+		
 		
 		//Vérification du format des données (REGEX java)
 		boolean inputNom = metier.verifyInput("^[a-zA-Z]{1,32}$", nom);
@@ -72,14 +76,20 @@ public class Register extends HttpServlet {
 			System.out.println("Mail invalide");
 		}
 		
+		User user = new User();
+		user.setNom(nom);
+		user.setPrenom(prenom);
+		user.setPassword(password);
+		user.setRole(role);
+		user.setQuestion_id(questionId);
+		user.setReponse(reponse);
 		
-		
-		
-		/*Pattern pattern = Pattern.compile("");
-		Matcher matcher = pattern.matcher(nom);
-		boolean matchFound = matcher.find();
-		System.out.println(matchFound);*/
-		System.out.println("Nom: " + nom);
+		System.out.println("Nom: " + user.getNom());
+		System.out.println("Prénom: " + user.getPrenom());
+		System.out.println("Mail:" + user.getEmail());
+		System.out.println("Id question: " + user.getQuestion_id());
+		System.out.println("Réponse: " + user.getReponse());
+		System.out.println("Role:" + user.getRole());
 		
 		
 		
