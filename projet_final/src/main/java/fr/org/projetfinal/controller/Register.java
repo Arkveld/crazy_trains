@@ -1,6 +1,7 @@
 package fr.org.projetfinal.controller;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,23 +11,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.org.projetfinal.metier.IQuestionMetier;
 import fr.org.projetfinal.metier.IUserMetier;
+import fr.org.projetfinal.metier.QuestionMetierImp;
 import fr.org.projetfinal.metier.UserMetierImp;
+import fr.org.projetfinal.model.Question;
 
 @WebServlet(name = "/Register")
 public class Register extends HttpServlet {
 	
 	private IUserMetier metier;
+	private IQuestionMetier questionMetier;
 	
 	@Override
 	public void init() throws ServletException {
 		metier = new UserMetierImp();
+		questionMetier = new QuestionMetierImp();
 	}
 	
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		try {
+			
+			List<Question> questions = questionMetier.findAllQuestion();
+			request.setAttribute("questions", questions);
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("Erreur dans nos serveurs");
+		}
+		
 		request.getRequestDispatcher("register.jsp").forward(request, response);
 	}
 	
