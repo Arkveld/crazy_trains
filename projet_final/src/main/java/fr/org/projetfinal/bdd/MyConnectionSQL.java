@@ -33,7 +33,7 @@ public class MyConnectionSQL {
 		
 		//Création de l'objet connection
 		try {
-			 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jsp_servlet?serverTimeZone=UTC", "root", "");
+			 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jsp_project?serverTimeZone=UTC", "root", "");
 			 return connection;
 		} catch(Exception e) {
 			e.printStackTrace();
