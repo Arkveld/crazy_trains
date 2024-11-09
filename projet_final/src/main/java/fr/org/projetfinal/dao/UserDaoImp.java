@@ -35,7 +35,7 @@ public class UserDaoImp implements IUserDao {
 			
 			prepareStatement.setString(5, user.getRole());
 			prepareStatement.setInt(6, user.getQuestion_id());
-			prepareStatement.setString(7, user.getRole());
+			prepareStatement.setString(7, user.getReponse());
 			
 			prepareStatement.executeUpdate();
 			
@@ -45,10 +45,6 @@ public class UserDaoImp implements IUserDao {
 		} catch(Exception e) {
 			
 		}
-		
-		
-	
-		
 		
 		return user;
 	}
