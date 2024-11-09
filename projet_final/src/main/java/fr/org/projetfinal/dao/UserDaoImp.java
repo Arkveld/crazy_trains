@@ -21,7 +21,10 @@ public class UserDaoImp implements IUserDao {
 		prepareStatement.setString(1, user.getNom());
 		prepareStatement.setString(2, user.getPrenom());
 		prepareStatement.setString(3, user.getEmail());
-		//prepareStatement.setBlob(4, user.getPassword());
+		//Cryptage
+		
+		//prepareStatement.setBytes(4, user.getPassword().getBytes());
+		
 		prepareStatement.setString(5, user.getRole());
 		prepareStatement.setInt(6, user.getQuestion_id());
 		prepareStatement.setString(7, user.getRole());
