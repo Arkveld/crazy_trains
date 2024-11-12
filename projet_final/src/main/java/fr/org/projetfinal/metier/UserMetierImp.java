@@ -3,13 +3,18 @@ package fr.org.projetfinal.metier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import fr.org.projetfinal.dao.IUserDao;
+import fr.org.projetfinal.dao.UserDaoImp;
 import fr.org.projetfinal.model.User;
 
 public class UserMetierImp implements IUserMetier {
+	
+	private IUserDao userDao;
 
 	@Override
-	public void register(User user) {
-		// TODO Auto-generated method stub
+	public User register(User user) throws Exception {
+		this.userDao = new UserDaoImp();
+		return userDao.addUser(user);
 		
 	}
 	
