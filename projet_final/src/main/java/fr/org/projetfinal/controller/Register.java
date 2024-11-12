@@ -76,6 +76,7 @@ public class Register extends HttpServlet {
 			System.out.println("Mail invalide");
 		}
 		
+		//Création d'un user
 		User user = new User();
 		user.setNom(nom);
 		user.setPrenom(prenom);
@@ -83,6 +84,14 @@ public class Register extends HttpServlet {
 		user.setRole(role);
 		user.setQuestion_id(questionId);
 		user.setReponse(reponse);
+		
+		//Inscription (Envoi de l'user vers la BDD)
+		try {
+			metier.register(user);
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("Erreur dans le serveur");
+		}
 		
 		System.out.println("Nom: " + user.getNom());
 		System.out.println("Prénom: " + user.getPrenom());
