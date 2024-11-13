@@ -22,7 +22,7 @@ public class UserDaoImp implements IUserDao {
 		try {
 			
 			//PrepareStatement
-			PreparedStatement prepareStatement = connection.prepareStatement("INSERT INTO user (nom, prenom, mail, password, role, question_id, reponse) VALUES (?, ?, ?, ?, ?, ?, ?)");
+			PreparedStatement prepareStatement = connection.prepareStatement("INSERT INTO users (nom, prenom, mail, password, role, question_id, reponse) VALUES (?, ?, ?, ?, ?, ?, ?)");
 			prepareStatement.setString(1, user.getNom());
 			prepareStatement.setString(2, user.getPrenom());
 			prepareStatement.setString(3, user.getEmail());
@@ -43,7 +43,8 @@ public class UserDaoImp implements IUserDao {
 			connection.close();
 			
 		} catch(Exception e) {
-			
+			e.printStackTrace();
+			System.out.println("Erreur lors de la reqûete");
 		}
 		
 		return user;

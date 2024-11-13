@@ -80,6 +80,7 @@ public class Register extends HttpServlet {
 		User user = new User();
 		user.setNom(nom);
 		user.setPrenom(prenom);
+		user.setEmail(mail);
 		user.setPassword(password);
 		user.setRole(role);
 		user.setQuestion_id(questionId);
@@ -88,17 +89,18 @@ public class Register extends HttpServlet {
 		//Inscription (Envoi de l'user vers la BDD)
 		try {
 			metier.register(user);
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("Erreur dans le serveur");
 		}
 		
-		System.out.println("Nom: " + user.getNom());
+		/*System.out.println("Nom: " + user.getNom());
 		System.out.println("Prénom: " + user.getPrenom());
 		System.out.println("Mail:" + user.getEmail());
 		System.out.println("Id question: " + user.getQuestion_id());
 		System.out.println("Réponse: " + user.getReponse());
-		System.out.println("Role:" + user.getRole());
+		System.out.println("Role:" + user.getRole());*/
 		
 		
 		
