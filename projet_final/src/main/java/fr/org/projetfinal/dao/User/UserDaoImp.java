@@ -3,6 +3,7 @@ package fr.org.projetfinal.dao.User;
 import java.security.Key;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import fr.org.projetfinal.bdd.MyConnectionSQL;
 import fr.org.projetfinal.model.User;
@@ -53,6 +54,44 @@ public class UserDaoImp implements IUserDao {
 	@Override
 	public User getUserByEmail(String mail) throws Exception {
 		// TODO Auto-generated method stub
+		
+		//Connexion
+		this.connection = MyConnectionSQL.getInstance();
+		
+		//Initialisation d'un user
+		User user = new User();
+		
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM `users` INNER JOIN questions ON users.question_id = questions.id WHERE mail= ?");
+			preparedStatement.setString(1, mail);
+			
+			ResultSet resultSet = preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				
+				user.setNom(resultSet.getString("nom"));
+				user.setPrenom(resultSet.getString("prenom"));
+				user.setEmail(resultSet.getString("mail"));
+				user.setQuestion_id(resultSet.getInt("question_id"));
+				user.setReponse(resultSet.getString("reponse"));
+				user.setReponse(resultSet.getString("role"));
+				
+				//Décryptage du mot de passe
+				Key key = GenerateKey.getkey("DES", 56);
+				String password = AlgoCryptage.decrypt(resultSet.getBytes("password"), key, "DES");
+				user.setPassword(password);
+			}
+			
+			resultSet.close();
+			preparedStatement.close();
+			connection.close();
+			
+			return user;
+			
+		} catch(Exception e ) {
+			e.printStackTrace();
+		}
+		
 		return null;
 		//SELECT * FROM `users` INNER JOIN questions ON users.question_id = questions.id WHERE mail='admin.test@mail.com'; 
 	}
