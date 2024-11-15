@@ -1,4 +1,4 @@
-package fr.org.projetfinal.dao;
+package fr.org.projetfinal.dao.Question;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

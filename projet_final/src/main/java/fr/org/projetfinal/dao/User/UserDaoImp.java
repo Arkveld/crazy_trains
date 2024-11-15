@@ -1,4 +1,4 @@
-package fr.org.projetfinal.dao;
+package fr.org.projetfinal.dao.User;
 
 import java.security.Key;
 import java.sql.Connection;
@@ -48,6 +48,13 @@ public class UserDaoImp implements IUserDao {
 		}
 		
 		return user;
+	}
+
+	@Override
+	public User getUserByEmail(String mail) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+		//SELECT * FROM `users` INNER JOIN questions ON users.question_id = questions.id WHERE mail='admin.test@mail.com'; 
 	}
 
 }

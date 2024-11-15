@@ -20,4 +20,15 @@ public abstract class AlgoCryptage {
 		byte[] passwordCrypted = cipher.doFinal(passwordToEncrypt.getBytes(StandardCharsets.UTF_8));
 		return passwordCrypted;
 	}
+	
+	//Décryptage
+	public static String decrypt(byte[] passwordToDecrypt, Key key, String algorithme) throws Exception {
+		
+		//Cipher
+		Cipher cipher = Cipher.getInstance(algorithme);
+		cipher.init(Cipher.DECRYPT_MODE, key);
+		
+		byte[]passwordDecrypted = cipher.doFinal(passwordToDecrypt);
+		return new String(passwordDecrypted, StandardCharsets.UTF_8);
+	}
 }

@@ -3,8 +3,8 @@ package fr.org.projetfinal.metier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import fr.org.projetfinal.dao.IUserDao;
-import fr.org.projetfinal.dao.UserDaoImp;
+import fr.org.projetfinal.dao.User.IUserDao;
+import fr.org.projetfinal.dao.User.UserDaoImp;
 import fr.org.projetfinal.model.User;
 
 public class UserMetierImp implements IUserMetier {
