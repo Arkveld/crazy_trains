@@ -74,7 +74,7 @@ public class UserDaoImp implements IUserDao {
 				user.setEmail(resultSet.getString("mail"));
 				user.setQuestion_id(resultSet.getInt("question_id"));
 				user.setReponse(resultSet.getString("reponse"));
-				user.setReponse(resultSet.getString("role"));
+				user.setRole(resultSet.getString("role"));
 				
 				//Décryptage du mot de passe
 				Key key = GenerateKey.getkey("DES", 56);
