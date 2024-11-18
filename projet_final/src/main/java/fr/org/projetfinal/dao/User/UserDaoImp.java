@@ -39,8 +39,8 @@ public class UserDaoImp implements IUserDao {
 			//Envoie de la clé
 			prepareStatement.setBytes(5, key.getEncoded());
 			
-			prepareStatement.setInt(7, user.getQuestion_id());
-			prepareStatement.setString(6, user.getReponse());
+			prepareStatement.setInt(6, user.getQuestion_id());
+			prepareStatement.setString(7, user.getReponse());
 			prepareStatement.setString(8, user.getRole());
 			
 			prepareStatement.executeUpdate();

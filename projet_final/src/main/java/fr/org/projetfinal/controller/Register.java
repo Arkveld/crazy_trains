@@ -95,12 +95,7 @@ public class Register extends HttpServlet {
 			System.out.println("Erreur dans le serveur");
 		}
 		
-		/*System.out.println("Nom: " + user.getNom());
-		System.out.println("Prénom: " + user.getPrenom());
-		System.out.println("Mail:" + user.getEmail());
-		System.out.println("Id question: " + user.getQuestion_id());
-		System.out.println("Réponse: " + user.getReponse());
-		System.out.println("Role:" + user.getRole());*/
+
 		
 		
 		

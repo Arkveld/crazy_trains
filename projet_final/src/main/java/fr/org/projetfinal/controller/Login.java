@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.org.projetfinal.metier.IUserMetier;
 import fr.org.projetfinal.metier.UserMetierImp;
+import fr.org.projetfinal.model.User;
 
 @WebServlet(name= "/Login")
 public class Login extends HttpServlet {
@@ -35,12 +36,12 @@ public class Login extends HttpServlet {
 		
 		try {
 			userMetier.login(mail, password);
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		System.out.println("Mail: " + mail);
-		System.out.println("Password: " + password);
+		
 	}
 
 }

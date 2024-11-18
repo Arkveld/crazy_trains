@@ -38,7 +38,10 @@ public class UserMetierImp implements IUserMetier {
 		try {
 			
 			user = userDao.getUserByEmail(mail);
-			System.out.println(user.getPassword());
+			if(password.equals(user.getPassword())) {
+				System.out.println("Mot de passe identique");
+			}
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
