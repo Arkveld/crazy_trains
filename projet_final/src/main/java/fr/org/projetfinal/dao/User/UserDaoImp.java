@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.crypto.spec.SecretKeySpec;
+
 import fr.org.projetfinal.bdd.MyConnectionSQL;
 import fr.org.projetfinal.model.User;
 import fr.org.projetfinal.security.AlgoCryptage;
@@ -23,7 +25,7 @@ public class UserDaoImp implements IUserDao {
 		try {
 			
 			//PrepareStatement
-			PreparedStatement prepareStatement = connection.prepareStatement("INSERT INTO users (nom, prenom, mail, password, role, question_id, reponse) VALUES (?, ?, ?, ?, ?, ?, ?)");
+			PreparedStatement prepareStatement = connection.prepareStatement("INSERT INTO users (nom, prenom, mail, password, cle_pwd, question_id, reponse, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 			prepareStatement.setString(1, user.getNom());
 			prepareStatement.setString(2, user.getPrenom());
 			prepareStatement.setString(3, user.getEmail());
@@ -34,9 +36,12 @@ public class UserDaoImp implements IUserDao {
 			byte[] passwordCrypted = AlgoCryptage.encrypt(user.getPassword(), key, "DES");
 			prepareStatement.setBytes(4, passwordCrypted);
 			
-			prepareStatement.setString(5, user.getRole());
-			prepareStatement.setInt(6, user.getQuestion_id());
-			prepareStatement.setString(7, user.getReponse());
+			//Envoie de la clé
+			prepareStatement.setBytes(5, key.getEncoded());
+			
+			prepareStatement.setInt(7, user.getQuestion_id());
+			prepareStatement.setString(6, user.getReponse());
+			prepareStatement.setString(8, user.getRole());
 			
 			prepareStatement.executeUpdate();
 			
@@ -77,7 +82,7 @@ public class UserDaoImp implements IUserDao {
 				user.setRole(resultSet.getString("role"));
 				
 				//Décryptage du mot de passe
-				Key key = GenerateKey.getkey("DES", 56);
+				Key key = new SecretKeySpec(resultSet.getBytes("cle_pwd"), "DES");
 				String password = AlgoCryptage.decrypt(resultSet.getBytes("password"), key, "DES");
 				user.setPassword(password);
 			}
