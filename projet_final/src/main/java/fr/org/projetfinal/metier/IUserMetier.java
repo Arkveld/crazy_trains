@@ -11,7 +11,7 @@ public interface IUserMetier {
 	public boolean verifyInput(String regex, String value);
 	
 	//Login
-	
+	public void login(String mail, String password) throws Exception;
 	//Logout
 	
 

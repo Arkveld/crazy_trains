@@ -8,5 +8,15 @@
 </head>
 <body>
 	<h1> Page Login </h1>
+	<form method="post" action="login">
+		<div>
+			<label for="mail"> Votre mail:</label>
+			<input type="text" name="mail">
+		</div>
+		<div>
+			<label for="password"> Votre mail:</label>
+			<input type="password" name="password">
+		</div>
+	</form>
 </body>
 </html>

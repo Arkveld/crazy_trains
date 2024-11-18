@@ -12,6 +12,7 @@ public class UserMetierImp implements IUserMetier {
 	private IUserDao userDao;
 
 	@Override
+	//Enregistrement d'un user
 	public User register(User user) throws Exception {
 		this.userDao = new UserDaoImp();
 		return userDao.addUser(user);
@@ -26,6 +27,27 @@ public class UserMetierImp implements IUserMetier {
 		
 		return matcher.find();
 		
+	}
+	
+	//Authentification
+	public void login(String mail, String password) throws Exception {
+		
+		User user;
+		this.userDao = new UserDaoImp();
+		
+		try {
+			
+			user = userDao.getUserByEmail(mail);
+			
+			//Comparaison du mot de passe saisie
+			if(password.equals(user.getPassword())) {
+				System.out.println("Mot de passe identiques");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Erreur dans nos serveurs");
+		}
 	}
 
 }

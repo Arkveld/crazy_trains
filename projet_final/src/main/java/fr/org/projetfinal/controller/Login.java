@@ -8,10 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.org.projetfinal.metier.IUserMetier;
+import fr.org.projetfinal.metier.UserMetierImp;
+
 @WebServlet(name= "/Login")
 public class Login extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+	private IUserMetier userMetier;
+	
+	@Override
+	public void init() throws ServletException {
+		userMetier = new UserMetierImp();
+	}
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,6 +30,17 @@ public class Login extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String mail = request.getParameter("mail");
+		String password = request.getParameter("password");
+		
+		try {
+			userMetier.login(mail, password);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("Mail: " + mail);
+		System.out.println("Password: " + password);
 	}
 
 }
