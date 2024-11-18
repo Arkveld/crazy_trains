@@ -14,9 +14,10 @@
 			<input type="text" name="mail">
 		</div>
 		<div>
-			<label for="password"> Votre mail:</label>
+			<label for="password"> Votre password:</label>
 			<input type="password" name="password">
 		</div>
+		<input type="submit" value="login"/>
 	</form>
 </body>
 </html>

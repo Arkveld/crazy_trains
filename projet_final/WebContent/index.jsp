@@ -7,5 +7,6 @@
 <body>
 	<h1> Page d'accueil </h1>
 	<a href="/projet_final/register"> S'inscrire</a>
+	<a href="/projet_final/login"> Login</a>
 </body>
 </html>
