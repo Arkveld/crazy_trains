@@ -46,8 +46,9 @@ public class Login extends HttpServlet {
 				
 				//On récupère l'utilisateur selon le mail
 				User user = userMetier.findByEmail(mail);
+				System.out.println(user.getQuestion_id());
 				//On récupère la question de cet utilisateur
-				Question question = questionMetier.findQuestionById(user.getId());
+				Question question = questionMetier.findQuestionById(user.getQuestion_id());
 				
 				//Puis on envoie vers la  page
 				request.setAttribute("user", user);
