@@ -35,7 +35,17 @@ public class Login extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		try {
-			userMetier.login(mail, password);
+			
+			Boolean login = userMetier.login(mail, password);
+			if (login) {
+				//Recupère un user
+				User user = userMetier.findByEmail(mail);
+				//Envoie un user vers la page
+				request.setAttribute("user", user);
+				request.getRequestDispatcher("user/question.jsp").forward(request, response);
+			}
+			
+			request.getRequestDispatcher("/user/login.jsp").forward(request, response);
 		
 		} catch (Exception e) {
 			e.printStackTrace();

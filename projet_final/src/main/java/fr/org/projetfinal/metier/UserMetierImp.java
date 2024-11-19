@@ -30,7 +30,7 @@ public class UserMetierImp implements IUserMetier {
 	}
 	
 	//Authentification
-	public void login(String mail, String password) throws Exception {
+	public boolean login(String mail, String password) throws Exception {
 		
 		User user;
 		this.userDao = new UserDaoImp();
@@ -38,15 +38,34 @@ public class UserMetierImp implements IUserMetier {
 		try {
 			
 			user = userDao.getUserByEmail(mail);
-			if(password.equals(user.getPassword())) {
-				System.out.println("Mot de passe identique");
+			if (user != null) {
+				
+				if(password.equals(user.getPassword())) {
+					System.out.println("Mot de passe identique");
+					return true;
+				}
+				
 			}
+			
+			return false;
 			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Erreur dans nos serveurs");
 		}
+		
+		return false;
 	}
+
+	//Retourne un user selon son mail
+	public User findByEmail(String email) throws Exception {
+		this.userDao = new UserDaoImp();
+		return userDao.getUserByEmail(email);
+
+	}
+	
+	
+	
 
 }
