@@ -7,5 +7,5 @@ import fr.org.projetfinal.model.Question;
 public interface IQuestionMetier {
 	
 	public List<Question> findAllQuestion() throws Exception;
-
+	public Question findQuestionById(int id) throws Exception;
 }

@@ -8,8 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.org.projetfinal.metier.IQuestionMetier;
 import fr.org.projetfinal.metier.IUserMetier;
+import fr.org.projetfinal.metier.QuestionMetierImp;
 import fr.org.projetfinal.metier.UserMetierImp;
+import fr.org.projetfinal.model.Question;
 import fr.org.projetfinal.model.User;
 
 @WebServlet(name= "/Login")
@@ -17,10 +20,12 @@ public class Login extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private IUserMetier userMetier;
+	private IQuestionMetier questionMetier;
 	
 	@Override
 	public void init() throws ServletException {
 		userMetier = new UserMetierImp();
+		questionMetier = new QuestionMetierImp();
 	}
 	
 	@Override
@@ -38,10 +43,16 @@ public class Login extends HttpServlet {
 			
 			Boolean login = userMetier.login(mail, password);
 			if (login) {
-				//Recupère un user
+				
+				//On récupère l'utilisateur selon le mail
 				User user = userMetier.findByEmail(mail);
-				//Envoie un user vers la page
+				//On récupère la question de cet utilisateur
+				Question question = questionMetier.findQuestionById(user.getId());
+				
+				//Puis on envoie vers la  page
 				request.setAttribute("user", user);
+				request.setAttribute("question", question);
+				
 				request.getRequestDispatcher("user/question.jsp").forward(request, response);
 			} else {
 				request.getRequestDispatcher("/user/login.jsp").forward(request, response);

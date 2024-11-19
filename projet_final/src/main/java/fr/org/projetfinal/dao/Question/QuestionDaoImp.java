@@ -1,6 +1,7 @@
 package fr.org.projetfinal.dao.Question;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -40,6 +41,28 @@ public class QuestionDaoImp implements IQuestionDao {
 		statement.close();
 		conncetion.close();
 		return questions;
+	}
+	
+	public Question getQuestionById(int id) throws Exception {
+		
+		Question question = new Question();
+		
+		//Se connecte à la BDD
+		this.conncetion = MyConnectionSQL.getInstance();
+		
+		//Statement et Resultset
+		PreparedStatement preparedStatement = conncetion.prepareStatement("SELECT * FROM questions WHERE id = ?");
+		preparedStatement.setInt(1, id);
+			
+		ResultSet resultset = preparedStatement.executeQuery();
+			
+		while(resultset.next()) {
+			
+			question.setId(resultset.getInt("id"));
+			question.setQuestion(resultset.getString("question"));
+		}
+		
+		return question;
 	}
 
 	

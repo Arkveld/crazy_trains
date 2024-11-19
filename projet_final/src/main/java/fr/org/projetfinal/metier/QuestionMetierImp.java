@@ -16,5 +16,10 @@ public class QuestionMetierImp implements IQuestionMetier {
 		return questionDao.getAllQuestions();
 				
 	}
+	@Override
+	public Question findQuestionById(int id) throws Exception {
+		questionDao = new QuestionDaoImp();
+		return questionDao.getQuestionById(id);
+	}
 
 }

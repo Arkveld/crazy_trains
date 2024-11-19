@@ -7,5 +7,6 @@ import fr.org.projetfinal.model.Question;
 public interface IQuestionDao {
 	
 	List<Question> getAllQuestions() throws Exception;
+	Question getQuestionById(int id) throws Exception;
 
 }

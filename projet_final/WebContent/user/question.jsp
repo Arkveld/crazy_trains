@@ -11,9 +11,10 @@
 	</h1>
 	<form>
 		<label for="question">
-			<c:out value="${user.mail}"/>
+			<c:out value="${question.question}"/>
 		</label>
 		<input type="text" name="reponse"/>
+		<input type="submit" value="Valider"/>
 	</form>
 	
 </body>
