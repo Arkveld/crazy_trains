@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "/Home")
 public class Home extends HttpServlet {
@@ -15,7 +16,7 @@ public class Home extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest requset, HttpServletResponse response) throws ServletException, IOException {
-		
+		HttpSession session = requset.getSession(false);
 		requset.getRequestDispatcher("index.jsp").forward(requset, response);
 	}
 
