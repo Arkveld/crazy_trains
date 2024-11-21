@@ -16,7 +16,17 @@ public class Logout extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		session.removeAttribute("user");
+		session.setMaxInactiveInterval(300);
+		session.invalidate();
 		response.sendRedirect("/projet_final/login");
+		System.out.println("Déconnexion");
+		
 	}
+	
+	
+
+	
 
 }

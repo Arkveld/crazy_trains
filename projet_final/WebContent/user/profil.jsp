@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h1>
-		<c:out value="Bonjour ${sessionScope.prenom}"/>
+		<c:out value="Bonjour ${sessionScope.user.nom}"/>
 	</h1>
 	<a href="/projet_final/logout"> Se déconnecter </a>
 </body>

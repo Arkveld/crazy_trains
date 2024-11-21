@@ -27,7 +27,7 @@ public class Authentification extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//Recupère le données
+		//Recupère les données
 		String mail = request.getParameter("mail");
 		String reponse = request.getParameter("reponse");
 		
@@ -36,18 +36,13 @@ public class Authentification extends HttpServlet {
 			
 			if(userMetier.checkResponse(reponse, mail)) {
 				
-				
 				System.out.println("Bonne réponse");
 				User user = userMetier.findByEmail(mail);
 				
 				//On démarre une session puis on dirige vers profile
-				HttpSession session = request.getSession();
-				session.setAttribute("nom", user.getNom());
-				session.setAttribute("prenom", user.getPrenom());
-				session.setAttribute("mail", user.getEmail());
-				
-				response.sendRedirect("/projet_final/profil");
-				
+				HttpSession session = request.getSession(true);
+				session.setAttribute("user", user);
+				response.sendRedirect("/projet_final/profil");				
 			} else {
 				System.out.println("Réponse incorrecte");
 				request.getRequestDispatcher("/user/login.jsp").forward(request, response);
@@ -59,7 +54,14 @@ public class Authentification extends HttpServlet {
 		}
 		
 		
+	
 		
+		
+	}
+	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("user/question.jsp").forward(request, response);
 	}
 	
 }
