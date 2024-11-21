@@ -64,6 +64,20 @@ public class UserMetierImp implements IUserMetier {
 		return userDao.getUserByEmail(email);
 
 	}
+
+	@Override
+	public boolean checkResponse(String reponse, String mail) throws Exception {
+		this.userDao = new UserDaoImp();
+		User user = userDao.getUserByEmail(mail);
+		
+		//Vérifie la reponse
+		if(reponse.equalsIgnoreCase(user.getReponse())) {
+			return true;
+		}
+		return false;
+	}
+	
+	
 	
 	
 	

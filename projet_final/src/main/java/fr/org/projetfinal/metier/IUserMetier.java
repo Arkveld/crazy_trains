@@ -15,6 +15,10 @@ public interface IUserMetier {
 	
 	//Login
 	public boolean login(String mail, String password) throws Exception;
+	
+	//Verification de la reponse
+	public boolean checkResponse(String reponse, String mail) throws Exception;
+	
 	//Logout
 	
 

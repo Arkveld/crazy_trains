@@ -48,4 +48,31 @@
 		<url-pattern> /login </url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name> Authentification</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Authentification</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Authentification </servlet-name>
+		<url-pattern> /authentification </url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name> Profil</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Profil</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Profil </servlet-name>
+		<url-pattern> /profil </url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name> Logout</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Logout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Logout </servlet-name>
+		<url-pattern> /logout </url-pattern>
+	</servlet-mapping>
+	
 </web-app>
