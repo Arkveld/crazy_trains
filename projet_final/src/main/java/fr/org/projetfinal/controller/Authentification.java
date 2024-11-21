@@ -40,12 +40,14 @@ public class Authentification extends HttpServlet {
 				User user = userMetier.findByEmail(mail);
 				
 				//On démarre une session puis on dirige vers profile
-				HttpSession session = request.getSession(true);
+				HttpSession session = request.getSession();
 				session.setAttribute("user", user);
+				session.setMaxInactiveInterval(2*60);
 				response.sendRedirect("/projet_final/profil");				
 			} else {
 				System.out.println("Réponse incorrecte");
-				request.getRequestDispatcher("/user/login.jsp").forward(request, response);
+				response.sendRedirect("/projet_final/login");
+				//request.getRequestDispatcher("/user/login.jsp").forward(request, response);
 			}
 			
 		}catch(Exception e) {
@@ -53,15 +55,7 @@ public class Authentification extends HttpServlet {
 			System.out.println("Erreur dans le serveur");
 		}
 		
-		
-	
-		
-		
 	}
 	
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("user/question.jsp").forward(request, response);
-	}
-	
+
 }

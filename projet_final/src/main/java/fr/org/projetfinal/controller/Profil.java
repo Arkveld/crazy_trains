@@ -16,12 +16,15 @@ public class Profil extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		HttpSession session = request.getSession(false);
 		if(session.getAttribute("user") == null){
 			response.sendRedirect("/projet_final/login");
 		 } else {
 			 request.getRequestDispatcher("user/profil.jsp").forward(request, response);
 		 }
+		
+		
 		
 
 	}

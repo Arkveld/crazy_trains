@@ -19,5 +19,6 @@
 		</div>
 		<input type="submit" value="login"/>
 	</form>
+	<a href="/projet_final/"> Accueil </a>
 </body>
 </html>
