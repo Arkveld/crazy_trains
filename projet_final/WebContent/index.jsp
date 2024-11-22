@@ -8,8 +8,12 @@
 	<h1> Page d'accueil </h1>
 	<a href="/projet_final/register"> S'inscrire</a>
 	<c:choose>
-		<c:when test="${sessionScope.user != null}">
+		<c:when test="${sessionScope.user.role == 'user'}">
 			<a href="/projet_final/profil"> Profil </a>
+			<a href="/projet_final/logout"> Logout </a>
+		</c:when>
+		<c:when test="${sessionScope.user.role == 'admin'}">
+			<a href="/projet_final/admin"> Administration </a>
 			<a href="/projet_final/logout"> Logout </a>
 		</c:when>
 		<c:otherwise>  
