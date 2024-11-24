@@ -9,6 +9,7 @@ public class Article {
 	private String imgUrl;
 	private String date;
 	private int user_id;
+	private int categorie_id;
 
 	public Article() {
 
@@ -68,6 +69,14 @@ public class Article {
 
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
+	}
+
+	public int getCategorie_id() {
+		return categorie_id;
+	}
+
+	public void setCategorie_id(int categorie_id) {
+		this.categorie_id = categorie_id;
 	}
 	
 
