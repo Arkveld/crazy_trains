@@ -6,7 +6,6 @@ public class Article {
 	private String titre;
 	private String contenu;
 	private String contenuNoSql;
-	private String imgUrl;
 	private String date;
 	private int user_id;
 	private int categorie_id;
@@ -61,14 +60,6 @@ public class Article {
 
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
-	}
-
-	public String getImgUrl() {
-		return imgUrl;
-	}
-
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
 	}
 
 	public int getCategorie_id() {

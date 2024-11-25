@@ -9,13 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import fr.org.projetfinal.metier.CategorieMetierImp;
 import fr.org.projetfinal.metier.ICategorieMetier;
 
 import fr.org.projetfinal.model.Categorie;
 
-@WebServlet(name="/Publish")
+@WebServlet(name = "/Publish")
 public class Publish extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -42,6 +43,28 @@ public class Publish extends HttpServlet {
 			request.getRequestDispatcher("/articles/saveArticle.jsp").forward(request, response);
 		}
 		
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String title = request.getParameter("title");
+		String categorie = request.getParameter("categorie");
+		String date = request.getParameter("date");
+		String auteur = request.getParameter("auteur");
+		String contenu = request.getParameter("contenu1");
+		String legende = request.getParameter("legende");
+		//Récupération du fichier
+		Part part = request.getPart("image");
+		
+		System.out.println(title);
+		System.out.println(categorie);
+		//System.out.println(request.getParameter("contentNoSql"));
+		System.out.println(contenu);
+		System.out.println(date);
+		System.out.println(auteur);
+		System.out.println(part);
+		System.out.println(legende);
 	}
 
 }
