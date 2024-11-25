@@ -20,7 +20,7 @@ public class ArticleDaoImp implements IArticleDao {
 	private Connection connection;
 	private MongoClient mongoConnection;
 	@Override
-	public void addArticle(Article article) throws Exception {
+	public Article addArticle(Article article) throws Exception {
 		
 		//MySql
 		this.connection = MyConnectionSQL.getInstance();
@@ -60,6 +60,7 @@ public class ArticleDaoImp implements IArticleDao {
 			e.printStackTrace();
 		}
 		
+		return article;
 		
 	}
 	
