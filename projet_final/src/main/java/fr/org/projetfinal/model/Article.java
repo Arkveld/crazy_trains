@@ -5,7 +5,8 @@ public class Article {
 	private int id;
 	private String titre;
 	private String contenu;
-	private String contenuNoSql;
+	private String legende;
+	private String imageUrl;
 	private String date;
 	private int user_id;
 	private int categorie_id;
@@ -38,14 +39,6 @@ public class Article {
 		this.contenu = contenu;
 	}
 
-	public String getContenuNoSql() {
-		return contenuNoSql;
-	}
-
-	public void setContenuNoSql(String contenuNoSql) {
-		this.contenuNoSql = contenuNoSql;
-	}
-
 	public String getDate() {
 		return date;
 	}
@@ -68,6 +61,22 @@ public class Article {
 
 	public void setCategorie_id(int categorie_id) {
 		this.categorie_id = categorie_id;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public String getLegende() {
+		return legende;
+	}
+
+	public void setLegende(String legende) {
+		this.legende = legende;
 	}
 	
 

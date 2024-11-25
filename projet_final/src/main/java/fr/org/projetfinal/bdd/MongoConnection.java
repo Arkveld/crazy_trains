@@ -7,22 +7,22 @@ import com.mongodb.client.MongoDatabase;
 
 public class MongoConnection {
 	
-	private static MongoDatabase instance;
+	private static MongoClient instance;
 	
 	private MongoConnection() {
 		
 	}
 
-	public static MongoDatabase getInstance() {
+	public static MongoClient getInstance() {
 		
 		try {
 			
 			if(instance == null) {
 				String uri = "mongodb://localhost:27017";
-				MongoClient mongoClient = MongoClients.create(uri);
+				instance = MongoClients.create(uri);
 				
 				//Connexion a la BDD
-				instance = mongoClient.getDatabase("trains");
+				//instance = mongoClient.getDatabase("trains");
 			}
 			
 		} catch(Exception e) {
