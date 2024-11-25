@@ -20,7 +20,7 @@ public class CategorieDaoImp implements ICategorieDao {
 		
 		this.connection = MyConnectionSQL.getInstance();
 		Statement statement = connection.createStatement();
-		ResultSet resultSet = statement.executeQuery("SELECT * FROM categorie");
+		ResultSet resultSet = statement.executeQuery("SELECT * FROM category");
 		
 		while(resultSet.next()) {
 			

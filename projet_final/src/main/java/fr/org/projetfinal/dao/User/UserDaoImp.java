@@ -73,7 +73,7 @@ public class UserDaoImp implements IUserDao {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {
-				
+				user.setId(resultSet.getInt("id"));
 				user.setNom(resultSet.getString("nom"));
 				user.setPrenom(resultSet.getString("prenom"));
 				user.setEmail(resultSet.getString("mail"));

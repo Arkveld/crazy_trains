@@ -8,6 +8,7 @@
 	<h1>
 		<c:out value="Bonjour ${sessionScope.user.nom}"/>
 	</h1>
+	<a href="/projet_final/publish"> Publier un article</a>
 	<a href="/projet_final/logout"> Se déconnecter </a>
 </body>
 </html>
