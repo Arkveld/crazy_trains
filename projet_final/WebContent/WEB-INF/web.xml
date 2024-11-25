@@ -84,4 +84,13 @@
 		<url-pattern> /admin </url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name> Publish</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Publish</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Publish</servlet-name>
+		<url-pattern> /publish </url-pattern>
+	</servlet-mapping>
+	
 </web-app>
