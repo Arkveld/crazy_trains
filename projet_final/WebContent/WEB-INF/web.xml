@@ -100,4 +100,13 @@
 		<url-pattern> /publish </url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name> Articles</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Articles</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Articles</servlet-name>
+		<url-pattern> /articles </url-pattern>
+	</servlet-mapping>
+	
 </web-app>
