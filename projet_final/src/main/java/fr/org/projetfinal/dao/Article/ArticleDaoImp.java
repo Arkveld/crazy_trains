@@ -98,12 +98,13 @@ public class ArticleDaoImp implements IArticleDao {
 				article.setDate(rs.getString("date"));
 				
 				articles.add(article);
-				
-				//On ferme la session
-				rs.close();
-				statement.close();
-				connection.close();
 			}
+			
+			//On ferme la session
+			rs.close();
+			statement.close();
+			connection.close();
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

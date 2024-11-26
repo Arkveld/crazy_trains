@@ -7,6 +7,7 @@
 <body>
 	<h1> Page d'accueil </h1>
 	<a href="/projet_final/register"> S'inscrire</a>
+	<a href="/projet_final/articles">Articles</a>
 	<c:choose>
 		<c:when test="${sessionScope.user.role == 'user'}">
 			<a href="/projet_final/profil"> Profil </a>
