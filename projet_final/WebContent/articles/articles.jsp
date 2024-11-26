@@ -12,7 +12,7 @@
 		<article>
 			<h2> <c:out value="${article.titre}"/></h2>
 			<p> <c:out value="${article.contenu}"/> </p>
-			<a href="${article.id}"> voir plus </a>
+			<a href="/projet_final/single?id=${article.id}"> voir plus </a>
 		</article>
 	</c:forEach>
 </body>

@@ -109,4 +109,13 @@
 		<url-pattern> /articles </url-pattern>
 	</servlet-mapping>
 	
+		<servlet>
+		<servlet-name> Single</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Single</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Single</servlet-name>
+		<url-pattern> /single </url-pattern>
+	</servlet-mapping>
+	
 </web-app>
