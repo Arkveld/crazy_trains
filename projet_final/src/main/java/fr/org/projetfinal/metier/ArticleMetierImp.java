@@ -1,5 +1,7 @@
 package fr.org.projetfinal.metier;
 
+import java.util.List;
+
 import javax.servlet.http.Part;
 
 import fr.org.projetfinal.dao.Article.ArticleDaoImp;
@@ -53,6 +55,18 @@ public class ArticleMetierImp implements IArticleMetier {
 		}
 		
 		
+	}
+
+	@Override
+	public List<Article> findArticles() throws Exception {
+		this.articleDao = new ArticleDaoImp();
+		return articleDao.getArticles();
+	}
+
+	@Override
+	public Article findOne(int id) throws Exception {
+		this.articleDao = new ArticleDaoImp();
+		return articleDao.getArticleById(id);
 	}
 	
 	
