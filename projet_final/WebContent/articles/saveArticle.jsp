@@ -25,7 +25,7 @@
 		</div>
 		<div>
 			<label for="contenu1"> Votre Contenu 1 </label>
-			<textarea rows="4" cols="50" name="contenu1"></textarea>
+			<textarea rows="4" cols="50" name="contenu"></textarea>
 		</div>
 		<div>
 			<label for="titre"> Votre image </label>

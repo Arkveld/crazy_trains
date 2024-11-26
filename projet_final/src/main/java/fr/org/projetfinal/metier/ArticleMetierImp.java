@@ -33,10 +33,10 @@ public class ArticleMetierImp implements IArticleMetier {
 
 	@Override
 	public boolean verifyFormatFile(String filename) {
-		if(!filename.contains(".png") || !filename.contains(".jpg")) {
-			return false;
+		if(filename.contains(".png") || filename.contains(".jpg")) {
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	@Override

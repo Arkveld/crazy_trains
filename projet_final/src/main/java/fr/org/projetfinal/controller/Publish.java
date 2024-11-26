@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import fr.org.projetfinal.metier.ArticleMetierImp;
 import fr.org.projetfinal.metier.CategorieMetierImp;
+import fr.org.projetfinal.metier.IArticleMetier;
 import fr.org.projetfinal.metier.ICategorieMetier;
-
+import fr.org.projetfinal.model.Article;
 import fr.org.projetfinal.model.Categorie;
 
 @WebServlet(name = "/Publish")
@@ -21,10 +23,13 @@ public class Publish extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private ICategorieMetier categorieMetier;
+	private IArticleMetier articleMetier;
+	private String messageError = "";
 	
 	@Override
 	public void init() throws ServletException {
 		this.categorieMetier = new CategorieMetierImp();
+		this.articleMetier = new ArticleMetierImp();
 	}
 	
 	@Override
@@ -49,22 +54,48 @@ public class Publish extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String title = request.getParameter("title");
-		String categorie = request.getParameter("categorie");
+		int categorie = Integer.parseInt(request.getParameter("categorie"));
 		String date = request.getParameter("date");
-		String auteur = request.getParameter("auteur");
-		String contenu = request.getParameter("contenu1");
+		int auteur = Integer.parseInt(request.getParameter("auteur"));
+		String contenu = request.getParameter("contenu");
 		String legende = request.getParameter("legende");
 		//Récupération du fichier
 		Part part = request.getPart("image");
 		
-		System.out.println(title);
-		System.out.println(categorie);
-		//System.out.println(request.getParameter("contentNoSql"));
-		System.out.println(contenu);
-		System.out.println(date);
-		System.out.println(auteur);
-		System.out.println(part);
-		System.out.println(legende);
+		//Récupère le nom du fichier
+		String filename = articleMetier.getFileName(part);
+		
+		//Verifie le format du fichier
+		Boolean typeFile = articleMetier.verifyFormatFile(filename);
+		if(!typeFile) {
+			messageError = "Le format doit être png ou jpg";
+			request.setAttribute("messageError", messageError);
+			request.getRequestDispatcher("/articles/saveArticle.jsp").forward(request, response);
+		} else {
+			
+			//On stocke les données dans un objet Article
+			Article article = new Article();
+			article.setTitre(title);
+			article.setCategorie_id(categorie);
+			article.setUser_id(auteur);
+			article.setContenu(contenu);
+			article.setDate(date);
+			article.setImageUrl(filename);
+			article.setLegende(legende);
+			
+			//Upload du fichier
+			articleMetier.uploadFile(part);
+			
+			//Envoi vers la BDD
+			try {
+				Article articleSaved = articleMetier.saveArticle(article);
+				//request.getRequestDispatcher("/user/profil.jsp").forward(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("Echec de l'envoi");
+			}
+		}
+		
 	}
 
 }

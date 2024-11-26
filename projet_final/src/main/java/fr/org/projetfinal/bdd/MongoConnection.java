@@ -18,11 +18,8 @@ public class MongoConnection {
 		try {
 			
 			if(instance == null) {
-				String uri = "mongodb://localhost:27017";
-				instance = MongoClients.create(uri);
 				
-				//Connexion a la BDD
-				//instance = mongoClient.getDatabase("trains");
+				instance = MongoClients.create("mongodb://localhost:27017");
 			}
 			
 		} catch(Exception e) {

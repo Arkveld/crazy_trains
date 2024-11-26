@@ -22,6 +22,8 @@ public class ArticleDaoImp implements IArticleDao {
 	@Override
 	public Article addArticle(Article article) throws Exception {
 		
+		//id
+		int id = 0;
 		//MySql
 		this.connection = MyConnectionSQL.getInstance();
 		//Client MongoDB
@@ -30,29 +32,31 @@ public class ArticleDaoImp implements IArticleDao {
 		
 		try {
 			//Connexion à la BDD mySQL
-			PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO (titre, contenu, date, user_id, categorie_id) article VALUES(?, ?, ?, ?, ?)");
-			preparedStatement.setString(1, article.getTitre());
-			preparedStatement.setString(2, article.getContenu());
-			preparedStatement.setString(3, article.getDate());
-			preparedStatement.setInt(4, article.getUser_id());
-			preparedStatement.setInt(5, article.getCategorie_id());
+			String query = "INSERT INTO articles (titre, contenu, date, user_id, categorie_id)  VALUES (?, ?, ?, ?, ?)";
+			PreparedStatement prepareStatement = connection.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
+			prepareStatement.setString(1, article.getTitre());
+			prepareStatement.setString(2, article.getContenu());
+			prepareStatement.setString(3, article.getDate());
+			prepareStatement.setInt(4, article.getUser_id());
+			prepareStatement.setInt(5, article.getCategorie_id());
 			
-			preparedStatement.executeUpdate();
+			prepareStatement.executeUpdate();
 			
 			//On récupère le dernier id inséree
-			Statement statement  = connection.createStatement();
-			int id = statement.executeUpdate("SELECT MAX (id) * FROM articles");
+			ResultSet rs = prepareStatement.getGeneratedKeys();
+			if(rs.next()) {
+				id = rs.getInt(1);
+			}
 			
 			//Connexion à MongoDB
-			MongoDatabase database = mongoConnection.getDatabase("trains");
+			MongoDatabase database = mongoConnection.getDatabase("train");
 			
 			MongoCollection<Document> collection = database.getCollection("articles");
 			Document document = new Document("id", id).append("url", article.getImageUrl()).append("legende", article.getLegende());
 			collection.insertOne(document);
 			
 			//On ferme la seesion
-			statement.close();
-			preparedStatement.close();
+			prepareStatement.close();
 			mongoConnection.close();
 			connection.close();
 		
