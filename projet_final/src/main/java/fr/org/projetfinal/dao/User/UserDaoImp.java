@@ -45,8 +45,8 @@ public class UserDaoImp implements IUserDao {
 			
 			prepareStatement.executeUpdate();
 			
-			prepareStatement.close();
-			connection.close();
+			//prepareStatement.close();
+			//connection.close();
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -87,9 +87,9 @@ public class UserDaoImp implements IUserDao {
 				user.setPassword(password);
 			}
 			
-			resultSet.close();
-			preparedStatement.close();
-			connection.close();
+			//resultSet.close();
+			//preparedStatement.close();
+			//connection.close();
 			
 			return user;
 			

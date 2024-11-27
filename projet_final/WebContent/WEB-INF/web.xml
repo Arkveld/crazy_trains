@@ -109,13 +109,21 @@
 		<url-pattern> /articles </url-pattern>
 	</servlet-mapping>
 	
-		<servlet>
+	<servlet>
 		<servlet-name> Single</servlet-name>
 		<servlet-class> fr.org.projetfinal.controller.Single</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name> Single</servlet-name>
 		<url-pattern> /single </url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name> Update</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Update</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Update</servlet-name>
+		<url-pattern> /update </url-pattern>
 	</servlet-mapping>
 	
 </web-app>

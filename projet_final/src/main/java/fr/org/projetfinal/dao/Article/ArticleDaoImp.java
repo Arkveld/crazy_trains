@@ -10,12 +10,14 @@ import java.util.List;
 
 
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 
 import fr.org.projetfinal.bdd.MongoConnection;
 import fr.org.projetfinal.bdd.MyConnectionSQL;
@@ -153,6 +155,49 @@ public class ArticleDaoImp implements IArticleDao {
 		
 		
 		return article;
+	}
+
+	/************ Modifier un article ***************/
+	@Override
+	public void updateArticle(Article article, int id) throws Exception {
+		//MySql
+		this.connection = MyConnectionSQL.getInstance();
+		//Client MongoDB
+		this.mongoConnection = MongoConnection.getInstance();
+		
+		try {
+			
+			//MySQL
+			
+			String query = "UPDATE articles SET titre = ?, contenu = ?, date = ?, user_id = ?, categorie_id = ? WHERE id = ?";
+			PreparedStatement ps = connection.prepareStatement(query);
+			ps.setString(1, article.getTitre());
+			ps.setString(2, article.getContenu());
+			ps.setString(3, article.getDate());
+			ps.setInt(4, article.getUser_id());
+			ps.setInt(5, article.getCategorie_id());
+			
+			ps.executeUpdate();
+			
+			//MongoDB
+			MongoDatabase database = mongoConnection.getDatabase("train");
+			MongoCollection<Document> collection = database.getCollection("articles");
+			
+			//On se place l'id du document à remplacer
+			Bson update = Updates.combine(Updates.set("id", id));
+			
+			//Nouveau document
+			Document document = new Document().append("url", article.getImageUrl()).append("legende", article.getLegende());
+			
+			//Modification
+			collection.updateOne(document, update);
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
 	}
 	
 	

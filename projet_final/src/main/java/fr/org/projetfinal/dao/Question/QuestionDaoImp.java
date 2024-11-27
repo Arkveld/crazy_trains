@@ -37,9 +37,9 @@ public class QuestionDaoImp implements IQuestionDao {
 			
 		}
 		
-		resultset.close();
-		statement.close();
-		conncetion.close();
+		//resultset.close();
+		//statement.close();
+		//conncetion.close();
 		return questions;
 	}
 	

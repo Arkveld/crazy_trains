@@ -13,6 +13,7 @@ public interface IArticleMetier {
 	public Article saveArticle(Article article) throws Exception;
 	public List<Article> findArticles() throws Exception;
 	public Article findOne(int id) throws Exception;
+	public void update(Article article, int id) throws Exception;
 	//Récupere le nom du fichier
 	public String getFileName(Part part);
 	//Vérifie le format du fichier

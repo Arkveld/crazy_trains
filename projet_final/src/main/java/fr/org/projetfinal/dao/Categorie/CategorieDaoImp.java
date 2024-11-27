@@ -31,9 +31,9 @@ public class CategorieDaoImp implements ICategorieDao {
 			categories.add(categorie);
 		}
 		
-		resultSet.close();
-		statement.close();
-		connection.close();
+		//resultSet.close();
+		//statement.close();
+		//connection.close();
 		
 		return categories;
 	}
