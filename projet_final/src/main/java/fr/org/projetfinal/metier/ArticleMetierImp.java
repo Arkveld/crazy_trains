@@ -74,6 +74,13 @@ public class ArticleMetierImp implements IArticleMetier {
 		this.articleDao = new ArticleDaoImp();
 		articleDao.updateArticle(article, id);
 	}
+
+	@Override
+	public void delete(int id) throws Exception {
+		this.articleDao = new ArticleDaoImp();
+		articleDao.deleteArticle(id);
+		
+	}
 	
 	
 

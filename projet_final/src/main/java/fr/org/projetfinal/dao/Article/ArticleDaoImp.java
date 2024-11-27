@@ -195,6 +195,35 @@ public class ArticleDaoImp implements IArticleDao {
 		
 		
 	}
+
+	@Override
+	public void deleteArticle(int id) throws Exception {
+		//MySql
+		this.connection = MyConnectionSQL.getInstance();
+		//Client MongoDB
+		this.mongoConnection = MongoConnection.getInstance();
+		
+		try {
+			
+			//MySQL
+			String query = "DELETE FROM articles WHERE id = ?";
+			PreparedStatement ps = connection.prepareStatement(query);
+			ps.setInt(1, id);
+			ps.executeUpdate();
+			
+			//MongoDB
+			MongoDatabase database = mongoConnection.getDatabase("train");
+			MongoCollection<Document> collection = database.getCollection("articles");
+			collection.deleteOne(Filters.eq("id", id));
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	
 	
 	
 
