@@ -18,14 +18,14 @@ public class MyConnectionSQL {
 		
 		if(instance == null) {
 			
-			return new MyConnectionSQL().getConnection();
+			instance = getConnection();
 		}
 		
 		return instance;
 	}
 	
 	//Connexion à la BDD
-	private Connection getConnection() {
+	private static Connection getConnection() {
 		
 		//Driver MySQL
 		try {

@@ -8,5 +8,10 @@
 </head>
 <body>
 	<h1> Page single</h1>
+	<h2> 
+		<c:out value="Titre: ${article.titre}"/>
+	</h2>
+	<p> <c:out value="legende: ${article.legende}"/>
+	
 </body>
 </html>

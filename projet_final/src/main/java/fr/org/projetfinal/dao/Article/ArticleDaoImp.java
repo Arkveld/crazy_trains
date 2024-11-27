@@ -65,9 +65,9 @@ public class ArticleDaoImp implements IArticleDao {
 			collection.insertOne(document);
 			
 			//On ferme la session
-			prepareStatement.close();
-			mongoConnection.close();
-			connection.close();
+			//prepareStatement.close();
+			//mongoConnection.close();
+			//connection.close();
 		
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -101,9 +101,9 @@ public class ArticleDaoImp implements IArticleDao {
 			}
 			
 			//On ferme la session
-			rs.close();
-			statement.close();
-			connection.close();
+			//rs.close();
+			//statement.close();
+			//connection.close();
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -134,20 +134,18 @@ public class ArticleDaoImp implements IArticleDao {
 				article.setDate(rs.getString("date"));
 			}
 			
-			rs.close();
-			ps.close();
-			connection.close();
+			//rs.close();
+			//ps.close();
+			//connection.close();
 			
 			MongoDatabase database = mongoConnection.getDatabase("train");
 			MongoCollection<Document> collection = database.getCollection("articles");
-			MongoCursor<Document> cursor = collection.find(Filters.eq("id", id)).iterator();
+			Document cursor = collection.find(Filters.eq("id", id)).first();
+			article.setImageUrl(cursor.getString("url"));
+			article.setLegende(cursor.getString("legende"));
 			
-			while(cursor.hasNext()) {
-				article.setImageUrl(cursor.next().getString("url"));
-				article.setLegende(cursor.next().getString("legende"));
-			}
+			//mongoConnection.close();
 			
-			mongoConnection.close();
 		
 		} catch(Exception e) {
 			e.printStackTrace();
