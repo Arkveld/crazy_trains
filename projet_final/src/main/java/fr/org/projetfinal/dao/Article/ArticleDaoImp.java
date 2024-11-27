@@ -176,6 +176,7 @@ public class ArticleDaoImp implements IArticleDao {
 			ps.setString(3, article.getDate());
 			ps.setInt(4, article.getUser_id());
 			ps.setInt(5, article.getCategorie_id());
+			ps.setInt(6, id);
 			
 			ps.executeUpdate();
 			
@@ -183,16 +184,11 @@ public class ArticleDaoImp implements IArticleDao {
 			MongoDatabase database = mongoConnection.getDatabase("train");
 			MongoCollection<Document> collection = database.getCollection("articles");
 			
+			
 			//On se place l'id du document à remplacer
-			Bson update = Updates.combine(Updates.set("id", id));
-			
-			//Nouveau document
-			Document document = new Document().append("url", article.getImageUrl()).append("legende", article.getLegende());
-			
-			//Modification
-			collection.updateOne(document, update);
-			
-			
+			collection.updateOne(Filters.eq("id", id), Updates.set("url", article.getImageUrl()));
+			collection.updateOne(Filters.eq("id", id), Updates.set("legende", article.getLegende()));
+		
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

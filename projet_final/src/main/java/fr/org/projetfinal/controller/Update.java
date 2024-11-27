@@ -59,17 +59,15 @@ public class Update extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//Récupère le paramètre
-		int id = Integer.parseInt(request.getParameter("id"));
-		
 		//On récupère les données du formulaire puis on stocke dans un objet
+		int id = Integer.parseInt(request.getParameter("id"));
 		String titre = request.getParameter("titre");
 		String contenu = request.getParameter("contenu");
 		int categorie = Integer.parseInt(request.getParameter("categorie"));
 		String legende = request.getParameter("legende");
 		String date = request.getParameter("date");
 		int auteur = Integer.parseInt(request.getParameter("auteur"));
-		Part part = request.getPart(request.getParameter("image"));
+		Part part = request.getPart("image");
 		
 		//Récupère le nom du fichier
 		String filename = articleMetier.getFileName(part);
@@ -78,34 +76,36 @@ public class Update extends HttpServlet {
 		Boolean typeFile = articleMetier.verifyFormatFile(filename);
 		
 		if(typeFile) {
+			
 			messageError = "Le format doit être png ou jpg";
 			request.setAttribute("messageError", messageError);
 			request.getRequestDispatcher("/articles/updateArticle.jsp").forward(request, response);
-		} else {
+		} 
+		//On stocke les données dans un objet Article
+		Article article = new Article();
+		article.setTitre(titre);
+		article.setCategorie_id(categorie);
+		article.setUser_id(auteur);
+		article.setContenu(contenu);
+		article.setDate(date);
+		article.setImageUrl(filename);
+		article.setLegende(legende);
+		System.out.println(article);
+		//Upload du fichier
+		articleMetier.uploadFile(part);
 			
-			//On stocke les données dans un objet Article
-			Article article = new Article();
-			article.setTitre(titre);
-			article.setCategorie_id(categorie);
-			article.setUser_id(auteur);
-			article.setContenu(contenu);
-			article.setDate(date);
-			article.setImageUrl(filename);
-			article.setLegende(legende);
-			
-			//Upload du fichier
-			articleMetier.uploadFile(part);
-			
-			//Modifier dans la BDD
-			try {
-				articleMetier.update(article, id);
-				//request.getRequestDispatcher("/articles/updateArticle.jsp").forward(request, response);
-			} catch(Exception e) {
-				e.printStackTrace();
-				System.out.println("Update réussie");
-			}
-			
+		//Modifier dans la BDD
+		try {
+			articleMetier.update(article, id);
+			System.out.println("Update réussie");
+			//request.getRequestDispatcher("/articles/updateArticle.jsp").forward(request, response);
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("Update failed");
+				
 		}
 			
 	}
+			
+	
 }

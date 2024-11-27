@@ -11,7 +11,7 @@
 	<form method="post" action="update" enctype="multipart/form-data">
 		<div>
 			<label for="titre"> Votre titre </label>
-			<input type="text" name="title" value="${article.titre}"/>
+			<input type="text" name="titre" value="${article.titre}"/>
 		</div>
 		<div>
 			<label for="categorie"> Choisir la catégorie </label>
@@ -24,13 +24,13 @@
 			</select>
 		</div>
 		<div>
-			<label for="contenu1"> Votre Contenu </label>
+			<label for="contenu"> Votre Contenu </label>
 			<textarea rows="4" cols="50" name="contenu" >
 				${article.contenu}
 			</textarea>
 		</div>
 		<div>
-			<label for="titre"> Votre image </label>
+			<label for="image"> Votre image </label>
 			<input type="file" name="image"/>
 		</div>
 		<div>
@@ -38,11 +38,12 @@
 			<input type="text" name="legende" value="${article.legende}">
 		</div>
 		<div>
-			<label for="titre"> Date de publication </label>
+			<label for="date"> Date de publication </label>
 			<input type="date" name="date"/>
 		</div>
 		<div>
 			<input type="hidden" value="${sessionScope.user.id}" name="auteur"/>
+			<input type="hidden" value="${article.id}" name="id"/>
 		</div>
 		<input type="submit" value="Modifier">
 	</form>

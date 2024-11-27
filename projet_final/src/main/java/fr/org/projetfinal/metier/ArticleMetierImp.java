@@ -73,7 +73,6 @@ public class ArticleMetierImp implements IArticleMetier {
 	public void update(Article article, int id) throws Exception {
 		this.articleDao = new ArticleDaoImp();
 		articleDao.updateArticle(article, id);
-		
 	}
 	
 	
