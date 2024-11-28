@@ -10,4 +10,6 @@ public interface ICommentaireMetier {
 	public List<Commentaire> findAllComments() throws Exception;
 	public List<Commentaire> findAllCommentsById(int id) throws Exception;
 	public void delete(int id) throws Exception;
+	//Vérification des inputs
+	public boolean verifyInput(String regex, String value);
 }

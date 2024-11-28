@@ -23,6 +23,7 @@ public class Delete extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
 		HttpSession session = request.getSession(false);
 		if(session.getAttribute("user") == null) {
 			response.sendRedirect("/projet_final/login");
@@ -31,7 +32,7 @@ public class Delete extends HttpServlet {
 		
 		try {
 			articleMetier.delete(id);
-			request.getRequestDispatcher("/articles/delete.jsp").forward(request, response);
+			response.sendRedirect("/projet_final/success");
 			
 		} catch (Exception e) {
 			e.printStackTrace();

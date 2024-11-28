@@ -34,6 +34,7 @@ public class Publish extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
 		HttpSession session = request.getSession(false);
 		if(session.getAttribute("user") == null) {
 			response.sendRedirect("/projet_final/login");
@@ -89,6 +90,7 @@ public class Publish extends HttpServlet {
 			//Envoi vers la BDD
 			try {
 				Article articleSaved = articleMetier.saveArticle(article);
+				response.sendRedirect("/projet_final/success");
 				//request.getRequestDispatcher("/user/profil.jsp").forward(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();

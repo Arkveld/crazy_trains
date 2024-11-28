@@ -150,6 +150,16 @@
 		<servlet-name> Error </servlet-name>
 		<url-pattern> /error </url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name> Success </servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Success</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Success </servlet-name>
+		<url-pattern> /success </url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name> Commentaires</servlet-name>
 		<servlet-class> fr.org.projetfinal.controller.Commentaires</servlet-class>

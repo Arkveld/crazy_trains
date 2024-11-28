@@ -12,6 +12,21 @@
 		<c:out value="Titre: ${article.titre}"/>
 	</h2>
 	<p> <c:out value="legende: ${article.legende}"/>
+	
+	<h2> Commentaire </h2>
+	<div>
+		<c:choose>
+			<c:when test="${commentaires != null}">
+				<c:forEach items="${commentaires}" var="commentaire">
+					<h4> <c:out value="${commentaire.pseudo}"/> </h4>
+					<p> <c:out value="${commentaire.contenu}"/> </p>
+					<small> <c:out value=" Posté le ${commentaire.date}"/></small>
+				</c:forEach>
+			</c:when>
+			<c:otherwise> Soyer le premier à ajouter à un commentaire</c:otherwise>
+		</c:choose>
+		
+	</div>
 	<a href="/projet_final/commentaire?id=${article.id}"> Ajouter un commentaire</a>
 </body>
 </html>

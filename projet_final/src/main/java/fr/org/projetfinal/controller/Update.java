@@ -34,7 +34,7 @@ public class Update extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
 		HttpSession session = request.getSession(false);
 		
 		if(session.getAttribute("user") == null) {
@@ -98,7 +98,7 @@ public class Update extends HttpServlet {
 		//Modifier dans la BDD
 		try {
 			articleMetier.update(article, id);
-			System.out.println("Update réussie");
+			response.sendRedirect("/projet_final/success");
 			//request.getRequestDispatcher("/articles/updateArticle.jsp").forward(request, response);
 		} catch(Exception e) {
 			e.printStackTrace();
