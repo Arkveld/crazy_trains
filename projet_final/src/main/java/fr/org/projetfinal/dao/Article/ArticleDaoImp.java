@@ -146,6 +146,8 @@ public class ArticleDaoImp implements IArticleDao {
 			article.setImageUrl(cursor.getString("url"));
 			article.setLegende(cursor.getString("legende"));
 			
+			
+			return article;
 			//mongoConnection.close();
 			
 		
@@ -154,7 +156,7 @@ public class ArticleDaoImp implements IArticleDao {
 		}
 		
 		
-		return article;
+		return null;
 	}
 
 	/************ Modifier un article ***************/

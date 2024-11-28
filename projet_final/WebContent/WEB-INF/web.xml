@@ -133,4 +133,22 @@
 		<url-pattern> /update </url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name> Delete</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Delete</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Delete</servlet-name>
+		<url-pattern> /delete </url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name> Error</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Error</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Error </servlet-name>
+		<url-pattern> /error </url-pattern>
+	</servlet-mapping>
+	
 </web-app>

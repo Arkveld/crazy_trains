@@ -23,6 +23,7 @@ public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private IUserMetier metier;
 	private IQuestionMetier questionMetier;
+	private String messageError;
 	
 	@Override
 	public void init() throws ServletException {
@@ -65,15 +66,21 @@ public class Register extends HttpServlet {
 		boolean inputMail = metier.verifyInput("^[a-z]{1,32}\\.[a-zA-z]{1,32}\\@[a-z]{1,10}\\.[a-z]{1,3}$", mail);
 		
 		if(!inputNom) {
-			System.out.println("Veuillez respecter le format");
+			messageError = "Nom invalide";
+			request.setAttribute("messageError", messageError);
+			response.sendRedirect("/projet_final/register");
 		}
 		
 		if(!inputPrenom) {
-			System.out.println("Veuillez respecter le format");
+			messageError = "Prénom invalide";
+			request.setAttribute("messageError", messageError);
+			response.sendRedirect("/projet_final/register");
 		}
 		
 		if(!inputMail) {
-			System.out.println("Mail invalide");
+			messageError = "Mail invalide";
+			request.setAttribute("messageError", messageError);
+			response.sendRedirect("/projet_final/register");
 		}
 		
 		//Création d'un user

@@ -13,14 +13,17 @@
 		<div>
 			<label for="nom"> Nom </label> <input type="text" name="nom"
 				pattern="[a-zA-Z]{1,32}" required="required">
+				<p>${messageError != null ? messageError : "" } </p>
 		</div>
 		<div>
 			<label for="prenom"> Prénom </label> <input type="text" name="prenom"
 				pattern="[a-zA-Z]{1,32}" required="required">
+				<p>${messageError != null ? messageError : "" } </p>
 		</div>
 		<div>
 			<label for="mail"> Mail </label> <input type="email" name="mail"
 				required="required">
+				<p>${messageError != null ? messageError : "" } </p>
 		</div>
 		<div>
 			<label for="password"> Mot de passe </label> <input type="password"

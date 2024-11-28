@@ -33,8 +33,15 @@ public class Single extends HttpServlet {
 		try {
 			
 			Article article = articleMetier.findOne(id);
-			request.setAttribute("article", article);
-			request.getRequestDispatcher("/articles/single.jsp").forward(request, response);
+			
+			if(article != null) {
+				request.setAttribute("article", article);
+				request.getRequestDispatcher("/articles/single.jsp").forward(request, response);
+				
+			} else {
+				request.getRequestDispatcher("error.jsp").forward(request, response);
+			}
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

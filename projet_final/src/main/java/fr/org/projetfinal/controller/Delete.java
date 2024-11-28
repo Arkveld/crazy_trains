@@ -28,13 +28,14 @@ public class Delete extends HttpServlet {
 			response.sendRedirect("/projet_final/login");
 		}
 		int id = Integer.parseInt(request.getParameter("id"));
+		
 		try {
 			articleMetier.delete(id);
-			response.sendRedirect("/projet_final/profil");
-			System.out.println("Supression réussie");
+			request.getRequestDispatcher("/articles/delete.jsp").forward(request, response);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Supression échec");
+			
 		}
 		
 		
