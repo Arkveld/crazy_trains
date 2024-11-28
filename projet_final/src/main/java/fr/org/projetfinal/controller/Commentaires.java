@@ -13,6 +13,9 @@ public class Commentaires extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		request.setAttribute("id", id);
+		System.out.println(id);
 		request.getRequestDispatcher("/user/commentaire.jsp").forward(request, response);
 		
 	}

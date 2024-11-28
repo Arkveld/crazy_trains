@@ -34,7 +34,7 @@ public class Admin extends HttpServlet {
 		 }
 		//On récupère l'user dans la session
 		User user = (User) session.getAttribute("user");
-		response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
+		
 		
 		if (user.getRole().equals("admin")) {
 			
