@@ -12,6 +12,6 @@
 		<c:out value="Titre: ${article.titre}"/>
 	</h2>
 	<p> <c:out value="legende: ${article.legende}"/>
-	
+	<a href="/projet_final/commentaire?id=${article.id}"> Ajouter un commentaire</a>
 </body>
 </html>

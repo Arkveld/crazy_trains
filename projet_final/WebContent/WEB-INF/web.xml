@@ -150,5 +150,13 @@
 		<servlet-name> Error </servlet-name>
 		<url-pattern> /error </url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name> Commentaires</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Commentaires</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Commentaires</servlet-name>
+		<url-pattern> /commentaire </url-pattern>
+	</servlet-mapping>
 	
 </web-app>

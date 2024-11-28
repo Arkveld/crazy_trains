@@ -18,6 +18,7 @@ public class Profil extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession(false);
+		response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
 		if(session.getAttribute("user") == null){
 			response.sendRedirect("/projet_final/login");
 		 } else {

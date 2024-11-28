@@ -22,6 +22,7 @@ public class Logout extends HttpServlet {
 		 }
 		session.removeAttribute("user");
 		session.invalidate();
+		response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
 		request.getRequestDispatcher("user/logout.jsp").forward(request, response);
 		/*HttpSession session = request.getSession(false);
 		session.removeAttribute("user");

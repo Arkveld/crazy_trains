@@ -29,8 +29,12 @@ public class Admin extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
+		if(session.getAttribute("user") == null){
+			response.sendRedirect("/projet_final/login");
+		 }
 		//On récupère l'user dans la session
 		User user = (User) session.getAttribute("user");
+		response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
 		
 		if (user.getRole().equals("admin")) {
 			
