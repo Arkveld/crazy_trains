@@ -1,4 +1,4 @@
-package fr.org.projetfinal.controller;
+package fr.org.projetfinal.controller.Articles;
 
 import java.io.IOException;
 import java.util.List;

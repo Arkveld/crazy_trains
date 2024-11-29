@@ -97,7 +97,7 @@ public class CommentaireDaoImp implements ICommentaireDao {
 		this.connection = MyConnectionSQL.getInstance();
 		try {
 			
-			String query = " DELETE FROM commentaires WHERE id = ?";
+			String query = "DELETE FROM commentaires WHERE id = ?";
 			PreparedStatement ps = connection.prepareStatement(query);
 			ps.setInt(1, id);
 			ps.executeUpdate();

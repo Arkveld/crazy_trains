@@ -4,6 +4,9 @@ import java.security.Key;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.crypto.spec.SecretKeySpec;
 
@@ -101,4 +104,100 @@ public class UserDaoImp implements IUserDao {
 		//SELECT * FROM `users` INNER JOIN questions ON users.question_id = questions.id WHERE mail='admin.test@mail.com'; 
 	}
 
+	@Override
+	public List<User> getUsers() throws Exception {
+		List<User> users = new ArrayList<User>();
+		this.connection = MyConnectionSQL.getInstance();
+		try {
+			
+			Statement statement = connection.createStatement();
+			ResultSet rs = statement.executeQuery("SELECT * FROM users");
+			
+			while(rs.next()) {
+				User user = new User();
+				user.setId(rs.getInt("id"));
+				user.setNom(rs.getString("nom"));
+				user.setPrenom(rs.getString("prenom"));
+				user.setEmail(rs.getString("mail"));
+				
+				users.add(user);
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return users;
+	}
+
+	@Override
+	public void update(User user, int id) throws Exception {
+		this.connection= MyConnectionSQL.getInstance();
+		
+		try {
+			
+			String query = "UPDATE users SET nom = ?, prenom = ?, mail = ?, question_id = ?, reponse = ? WHERE id = ?";
+			PreparedStatement ps = connection.prepareStatement(query);
+			
+			ps.setString(1, user.getNom());
+			ps.setString(2, user.getPrenom());
+			ps.setString(3, user.getEmail());
+			ps.setInt(4, user.getQuestion_id());
+			ps.setString(5, user.getReponse());
+			ps.setInt(6, id);
+			
+			ps.executeUpdate();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void delete(int id) throws Exception {
+		this.connection= MyConnectionSQL.getInstance();
+		
+		try {
+			String query = "DELETE FROM users WHERE id = ?";
+			PreparedStatement ps = connection.prepareStatement(query);
+			ps.setInt(1, id);
+			ps.executeUpdate();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public User getUserById(int id) throws Exception {
+		
+		//Connexion
+		this.connection = MyConnectionSQL.getInstance();
+		//Initialisation d'un user
+		User user = new User();
+		
+		try {
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM users WHERE id = ?");
+			ps.setInt(1, id);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				
+				user.setId(rs.getInt("id"));
+				user.setNom(rs.getString("nom"));
+				user.setPrenom(rs.getString("prenom"));
+				user.setEmail(rs.getString("mail"));
+				
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return user;
+	}
+
+	
 }

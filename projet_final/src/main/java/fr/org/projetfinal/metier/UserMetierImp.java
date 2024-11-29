@@ -1,5 +1,6 @@
 package fr.org.projetfinal.metier;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -64,6 +65,28 @@ public class UserMetierImp implements IUserMetier {
 		return userDao.getUserByEmail(email);
 
 	}
+	
+	@Override
+	public List<User> find() throws Exception {
+		userDao = new UserDaoImp();
+		return userDao.getUsers();
+	}
+
+
+	@Override
+	public void updateUser(User user, int id) throws Exception {
+		userDao = new UserDaoImp();
+		userDao.update(user, id);
+		
+	}
+
+	@Override
+	public void deleteUser(int id) throws Exception {
+		userDao = new UserDaoImp();
+		userDao.delete(id);
+		
+	}
+	
 
 	@Override
 	public boolean checkResponse(String reponse, String mail) throws Exception {
@@ -76,6 +99,13 @@ public class UserMetierImp implements IUserMetier {
 		}
 		return false;
 	}
+
+	@Override
+	public User findOne(int id) throws Exception {
+		this.userDao = new UserDaoImp();
+		return userDao.getUserById(id);
+	}
+
 	
 	
 	

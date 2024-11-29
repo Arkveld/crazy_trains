@@ -1,4 +1,4 @@
-package fr.org.projetfinal.controller;
+package fr.org.projetfinal.controller.User;
 
 import java.io.IOException;
 

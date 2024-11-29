@@ -7,7 +7,6 @@ public class User {
 	private String nom;
 	private String prenom;
 	private String email;
-	private String date_naissance;
 	private String password;
 	private int question_id;
 	private String role;
@@ -49,14 +48,6 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getDate_naissance() {
-		return date_naissance;
-	}
-
-	public void setDate_naissance(String date_naissance) {
-		this.date_naissance = date_naissance;
 	}
 
 	public String getPassword() {

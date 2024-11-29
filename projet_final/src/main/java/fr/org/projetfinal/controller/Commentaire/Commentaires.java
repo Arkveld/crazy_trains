@@ -1,4 +1,4 @@
-package fr.org.projetfinal.controller;
+package fr.org.projetfinal.controller.Commentaire;
 
 import java.io.IOException;
 
@@ -32,7 +32,7 @@ public class Commentaires extends HttpServlet {
 		} else {
 			int id = Integer.parseInt(request.getParameter("id"));
 			request.setAttribute("id", id);
-			request.getRequestDispatcher("/user/commentaire.jsp").forward(request, response);
+			request.getRequestDispatcher("/commentaires/commentaire.jsp").forward(request, response);
 		}
 		
 		

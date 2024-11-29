@@ -1,21 +1,19 @@
-package fr.org.projetfinal.controller;
+package fr.org.projetfinal.controller.Articles;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.org.projetfinal.metier.ArticleMetierImp;
 import fr.org.projetfinal.metier.IArticleMetier;
-import fr.org.projetfinal.model.Article;
 
-@WebServlet(name = "/Articles")
-public class Articles extends HttpServlet {
+@WebServlet(name = "/Delete")
+public class Delete extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private IArticleMetier articleMetier;
@@ -27,15 +25,23 @@ public class Articles extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//Recupère tous les articles
-		List<Article> articles = new ArrayList<Article>();
-		try {
-			articles = articleMetier.findArticles();
-			request.setAttribute("articles", articles);
-		}catch (Exception e) {
-			e.printStackTrace();
+		response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
+		HttpSession session = request.getSession(false);
+		if(session.getAttribute("user") == null) {
+			response.sendRedirect("/projet_final/login");
 		}
-		request.getRequestDispatcher("articles/articles.jsp").forward(request, response);
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		try {
+			articleMetier.delete(id);
+			response.sendRedirect("/projet_final/success");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		
+		
 	}
 
 }

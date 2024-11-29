@@ -16,8 +16,6 @@
 		</jsp-property-group>
 	</jsp-config>
 	
-	
-	
 	<!-- Servlets  -->
 	
 	<servlet>
@@ -27,119 +25,6 @@
 	<servlet-mapping>
 		<servlet-name> Home </servlet-name>
 		<url-pattern> / </url-pattern>
-	</servlet-mapping>
-	
-	
-	<servlet>
-		<servlet-name> Register </servlet-name>
-		<servlet-class> fr.org.projetfinal.controller.Register</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name> Register </servlet-name>
-		<url-pattern> /register </url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name> Login</servlet-name>
-		<servlet-class> fr.org.projetfinal.controller.Login</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name> Login </servlet-name>
-		<url-pattern> /login </url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name> Authentification</servlet-name>
-		<servlet-class> fr.org.projetfinal.controller.Authentification</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name> Authentification </servlet-name>
-		<url-pattern> /authentification </url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name> Profil</servlet-name>
-		<servlet-class> fr.org.projetfinal.controller.Profil</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name> Profil </servlet-name>
-		<url-pattern> /profil </url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name> Logout</servlet-name>
-		<servlet-class> fr.org.projetfinal.controller.Logout</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name> Logout </servlet-name>
-		<url-pattern> /logout </url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name> Admin</servlet-name>
-		<servlet-class> fr.org.projetfinal.controller.Admin</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name> Admin</servlet-name>
-		<url-pattern> /admin </url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name> Publish</servlet-name>
-		<servlet-class> fr.org.projetfinal.controller.Publish</servlet-class>
-		<!-- Configuration pour les parts -->
-		<multipart-config>
-			<location> C:\Users\Michael Mabonzo\git\crazy_trains\projet_final\WebContent\assets\images</location>
-			<max-file-size>10485760</max-file-size>
-			<max-request-size>52428800</max-request-size>
-			<file-size-threshold>1048576</file-size-threshold>
-		</multipart-config>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Publish</servlet-name>
-		<url-pattern> /publish </url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name> Articles</servlet-name>
-		<servlet-class> fr.org.projetfinal.controller.Articles</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name> Articles</servlet-name>
-		<url-pattern> /articles </url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name> Single</servlet-name>
-		<servlet-class> fr.org.projetfinal.controller.Single</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name> Single</servlet-name>
-		<url-pattern> /single </url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name> Update</servlet-name>
-		<servlet-class> fr.org.projetfinal.controller.Update</servlet-class>
-		<!-- Configuration pour les parts -->
-		<multipart-config>
-			<location> C:\Users\Michael Mabonzo\git\crazy_trains\projet_final\WebContent\assets\images</location>
-			<max-file-size>10485760</max-file-size>
-			<max-request-size>52428800</max-request-size>
-			<file-size-threshold>1048576</file-size-threshold>
-		</multipart-config>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name> Update</servlet-name>
-		<url-pattern> /update </url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name> Delete</servlet-name>
-		<servlet-class> fr.org.projetfinal.controller.Delete</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name> Delete</servlet-name>
-		<url-pattern> /delete </url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -160,9 +45,167 @@
 		<url-pattern> /success </url-pattern>
 	</servlet-mapping>
 	
+	<!-- User -->
+	
+	<servlet>
+		<servlet-name> Register </servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.User.Register</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Register </servlet-name>
+		<url-pattern> /register </url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name> Login</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.User.Login</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Login </servlet-name>
+		<url-pattern> /login </url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name> Authentification</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.User.Authentification</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Authentification </servlet-name>
+		<url-pattern> /authentification </url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name> Profil</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.User.Profil</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Profil </servlet-name>
+		<url-pattern> /profil </url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name> UpdateProfil</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.User.UpdateProfil</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> UpdateProfil </servlet-name>
+		<url-pattern> /updateProfil </url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name> Logout</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.User.Logout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Logout </servlet-name>
+		<url-pattern> /logout </url-pattern>
+	</servlet-mapping>
+	
+	<!-- Administration -->
+	
+	<servlet>
+		<servlet-name> Admin</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Admin.Admin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Admin</servlet-name>
+		<url-pattern> /admin </url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name> AdminArticle</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Admin.AdminArticle</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> AdminArticle</servlet-name>
+		<url-pattern> /adminArticle </url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name> AdminUser</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Admin.AdminUser</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> AdminUser</servlet-name>
+		<url-pattern> /adminUser </url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name> AdminComment</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Admin.AdminComment</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> AdminComment</servlet-name>
+		<url-pattern> /adminComment </url-pattern>
+	</servlet-mapping>
+	
+	<!--  Articles -->
+	
+	<servlet>
+		<servlet-name> Publish</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Articles.Publish</servlet-class>
+		<!-- Configuration pour les parts -->
+		<multipart-config>
+			<location> C:\Users\Michael Mabonzo\git\crazy_trains\projet_final\WebContent\assets\images</location>
+			<max-file-size>10485760</max-file-size>
+			<max-request-size>52428800</max-request-size>
+			<file-size-threshold>1048576</file-size-threshold>
+		</multipart-config>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Publish</servlet-name>
+		<url-pattern> /publish </url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name> Articles</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Articles.Articles</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Articles</servlet-name>
+		<url-pattern> /articles </url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name> Single</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Articles.Single</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Single</servlet-name>
+		<url-pattern> /single </url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name> Update</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Articles.Update</servlet-class>
+		<!-- Configuration pour les parts -->
+		<multipart-config>
+			<location> C:\Users\Michael Mabonzo\git\crazy_trains\projet_final\WebContent\assets\images</location>
+			<max-file-size>10485760</max-file-size>
+			<max-request-size>52428800</max-request-size>
+			<file-size-threshold>1048576</file-size-threshold>
+		</multipart-config>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Update</servlet-name>
+		<url-pattern> /update </url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name> Delete</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Articles.Delete</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Delete</servlet-name>
+		<url-pattern> /delete </url-pattern>
+	</servlet-mapping>
+	
+
+	
+	<!-- Commentaires -->
+	
 	<servlet>
 		<servlet-name> Commentaires</servlet-name>
-		<servlet-class> fr.org.projetfinal.controller.Commentaires</servlet-class>
+		<servlet-class> fr.org.projetfinal.controller.Commentaire.Commentaires</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name> Commentaires</servlet-name>
