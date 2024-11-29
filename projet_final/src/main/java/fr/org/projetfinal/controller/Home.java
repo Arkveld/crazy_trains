@@ -18,7 +18,7 @@ public class Home extends HttpServlet {
 	protected void doGet(HttpServletRequest requset, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = requset.getSession(false);
 		response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
-		requset.getRequestDispatcher("index.jsp").forward(requset, response);
+		requset.getRequestDispatcher("/index.jsp").forward(requset, response);
 	}
 
 }
