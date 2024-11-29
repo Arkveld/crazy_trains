@@ -36,12 +36,11 @@ public class DeleteComment extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		
 		try {
-			//commentaireMetier.delete(id);
-			System.out.println(id);
-			
+			commentaireMetier.delete(id);
 		} catch(Exception e) {
 			 e.printStackTrace();
 		}
+		request.getRequestDispatcher("/commentaires/deleteComment.jsp").forward(request, response);
 	}
 
 }

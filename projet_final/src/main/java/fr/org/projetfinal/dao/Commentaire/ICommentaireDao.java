@@ -11,8 +11,8 @@ public interface ICommentaireDao {
 	//Obtenir tous les commentaires
 	public List<Commentaire> getAllComments() throws Exception;
 	
-	//Obtenir tous les commentaires selon l'id
-	public List<Commentaire> getAllCommentsById(int id) throws Exception;
+	//Obtenir tous les commentaires selon l'id de l'article
+	public List<Commentaire> getAllCommentsById(int articleId) throws Exception;
 	
 	//Supprimer un commentaire
 	public void deleteComment(int id) throws Exception;

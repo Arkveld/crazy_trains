@@ -7,6 +7,6 @@
 <title> Page suppresssion commentaire</title>
 </head>
 <body>
-	<p> Page suppresssion commentaire </p>
+	<p> Commentaire supprimé </p>
 </body>
 </html>

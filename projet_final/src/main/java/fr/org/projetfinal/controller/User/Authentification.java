@@ -36,14 +36,13 @@ public class Authentification extends HttpServlet {
 			
 			if(userMetier.checkResponse(reponse, mail)) {
 				
-				System.out.println("Bonne réponse");
 				User user = userMetier.findByEmail(mail);
 				
 				//On démarre une session puis on dirige vers profile
 				HttpSession session = request.getSession();
 				session.setAttribute("user", user);
-				session.setMaxInactiveInterval(2*60);
-				response.sendRedirect("/projet_final/profil");				
+				response.sendRedirect("/projet_final/profil");
+				
 			} else {
 				System.out.println("Réponse incorrecte");
 				response.sendRedirect("/projet_final/login");

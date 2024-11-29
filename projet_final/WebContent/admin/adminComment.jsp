@@ -17,15 +17,14 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<c:forEach items="${comments}" var="comment">
+			<c:forEach items="${comments}" var="comment">
+				<tr>
 					<td><c:out value="${comment.pseudo}" /></td>
 					<td><c:out value="${comment.contenu}" /></td>
 					<td><c:out value="${comment.date}" /></td>
-					<td><a href="/projet_final/deleteComment?id=${comment.id}">
-							Supprimer</a></td>
-				</c:forEach>
-			</tr>
+					<td><a href="/projet_final/deleteComment?id=${comment.id}"> Supprimer </a> </td>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 	<a href="/projet_final/admin"> retour administration </a>

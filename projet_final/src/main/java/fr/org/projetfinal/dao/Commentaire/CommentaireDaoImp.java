@@ -48,6 +48,7 @@ public class CommentaireDaoImp implements ICommentaireDao {
 			ResultSet rs = statement.executeQuery(query);
 			
 			while(rs.next()) {
+				
 				Commentaire commentaire = new Commentaire();
 				commentaire.setId(rs.getInt("id"));
 				commentaire.setPseudo(rs.getString("pseudo"));
@@ -65,15 +66,15 @@ public class CommentaireDaoImp implements ICommentaireDao {
 	}
 
 	@Override
-	public List<Commentaire> getAllCommentsById(int id) throws Exception {
+	public List<Commentaire> getAllCommentsById(int articleId) throws Exception {
 		List<Commentaire> commentaires = new ArrayList<Commentaire>();
 		this.connection = MyConnectionSQL.getInstance();
 		
 		try {
 			
-			String query = "SELECT * FROM commentaires WHERE id = ?";
+			String query = "SELECT * FROM commentaires WHERE article_id = ?";
 			PreparedStatement ps = connection.prepareStatement(query);
-			ps.setInt(1, id);
+			ps.setInt(1, articleId);
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {

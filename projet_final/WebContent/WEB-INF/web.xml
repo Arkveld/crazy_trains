@@ -132,7 +132,7 @@
 	
 	<servlet>
 		<servlet-name> AdminComment</servlet-name>
-		<servlet-class> fr.org.projetfinal.controller.Admin.AdminComment</servlet-class>
+		<servlet-class> fr.org.projetfinal.controller.Admin.CommentAdmin</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name> AdminComment</servlet-name>
@@ -211,5 +211,15 @@
 		<servlet-name> Commentaires</servlet-name>
 		<url-pattern> /commentaire </url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name> DeleteComment</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Commentaire.DeleteComment</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> DeleteComment</servlet-name>
+		<url-pattern> /deleteComment </url-pattern>
+	</servlet-mapping>
+
 	
 </web-app>
