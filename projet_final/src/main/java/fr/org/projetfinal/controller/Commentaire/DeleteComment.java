@@ -40,7 +40,7 @@ public class DeleteComment extends HttpServlet {
 		} catch(Exception e) {
 			 e.printStackTrace();
 		}
-		request.getRequestDispatcher("/commentaires/deleteComment.jsp").forward(request, response);
+		request.getRequestDispatcher("/pages/commentaires/deleteComment.jsp").forward(request, response);
 	}
 
 }

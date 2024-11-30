@@ -50,7 +50,7 @@ public class CommentAdmin extends HttpServlet {
 				 e.printStackTrace();
 			 }
 				
-			 request.getRequestDispatcher("admin/adminComment.jsp").forward(request, response);
+			 request.getRequestDispatcher("/pages/admin/adminComment.jsp").forward(request, response);
 		}
 	}
 

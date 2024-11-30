@@ -45,7 +45,7 @@ public class ArticleAdmin extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-			request.getRequestDispatcher("admin/adminArticle.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/admin/adminArticle.jsp").forward(request, response);
 		
 		}
 		

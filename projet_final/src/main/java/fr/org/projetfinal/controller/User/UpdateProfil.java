@@ -53,7 +53,7 @@ public class UpdateProfil extends HttpServlet {
 			
 			request.setAttribute("user", user);
 			request.setAttribute("questions", questions);
-			request.getRequestDispatcher("/user/updateProfil.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/user/updateProfil.jsp").forward(request, response);
 		
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -80,19 +80,19 @@ public class UpdateProfil extends HttpServlet {
 		if(!inputNom) {
 			messageError = "Nom invalide";
 			request.setAttribute("messageError", messageError);
-			response.sendRedirect("/user/updateProfil.jsp");
+			response.sendRedirect("/pages/user/updateProfil.jsp");
 		}
 				
 		if(!inputPrenom) {
 				messageError = "Prénom invalide";
 				request.setAttribute("messageError", messageError);
-				response.sendRedirect("/user/updateProfil.jsp");
+				response.sendRedirect("/pages/user/updateProfil.jsp");
 		}
 				
 		if(!inputMail) {
 			messageError = "Mail invalide";
 			request.setAttribute("messageError", messageError);
-			response.sendRedirect("/user/updateProfil.jsp");
+			response.sendRedirect("/pages/user/updateProfil.jsp");
 		}
 		
 		//Création d'un user
@@ -106,7 +106,7 @@ public class UpdateProfil extends HttpServlet {
 		//Mise à jour du profil
 		try {
 			userMetier.updateUser(user, id);
-			request.getRequestDispatcher("/user/profil.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/user/profil.jsp").forward(request, response);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

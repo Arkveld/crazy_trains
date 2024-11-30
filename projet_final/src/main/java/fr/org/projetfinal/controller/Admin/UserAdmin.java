@@ -48,7 +48,7 @@ public class UserAdmin extends HttpServlet {
 				 e.printStackTrace();
 			 }
 				
-			 request.getRequestDispatcher("admin/adminUser.jsp").forward(request, response);
+			 request.getRequestDispatcher("/pages/admin/adminUser.jsp").forward(request, response);
 		}
 	}
 

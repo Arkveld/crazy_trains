@@ -32,7 +32,7 @@ public class Commentaires extends HttpServlet {
 		} else {
 			int id = Integer.parseInt(request.getParameter("id"));
 			request.setAttribute("id", id);
-			request.getRequestDispatcher("/commentaires/commentaire.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/commentaires/commentaire.jsp").forward(request, response);
 		}
 		
 		
@@ -56,7 +56,7 @@ public class Commentaires extends HttpServlet {
 		//Envoi dans la BDD
 		try {
 			commentaireMetier.postComment(commentaire);
-			request.getRequestDispatcher("success.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/success.jsp").forward(request, response);
 			System.out.println("Commentaire posté");
 		} catch(Exception e) {
 			e.printStackTrace();

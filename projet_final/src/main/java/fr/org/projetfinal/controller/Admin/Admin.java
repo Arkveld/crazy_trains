@@ -31,7 +31,7 @@ public class Admin extends HttpServlet {
 			response.sendRedirect("/projet_final/login");
 		 } else {
 				
-			 request.getRequestDispatcher("admin/admin.jsp").forward(request, response);
+			 request.getRequestDispatcher("/pages/admin/admin.jsp").forward(request, response);
 		}
 		
 		

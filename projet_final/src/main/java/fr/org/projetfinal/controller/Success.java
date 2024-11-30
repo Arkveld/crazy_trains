@@ -15,7 +15,7 @@ public class Success extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("success.jsp").forward(request, response);
+		request.getRequestDispatcher("/pages/success.jsp").forward(request, response);
 	}
 
 }

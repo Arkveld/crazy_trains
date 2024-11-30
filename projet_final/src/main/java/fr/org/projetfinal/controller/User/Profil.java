@@ -21,7 +21,7 @@ public class Profil extends HttpServlet {
 		if(session.getAttribute("user") == null){
 			response.sendRedirect("/projet_final/login");
 		 } else {
-			 request.getRequestDispatcher("user/profil.jsp").forward(request, response);
+			 request.getRequestDispatcher("/pages/user/profil.jsp").forward(request, response);
 		 }
 		
 		

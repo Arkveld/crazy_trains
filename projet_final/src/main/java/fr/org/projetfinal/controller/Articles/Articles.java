@@ -35,7 +35,7 @@ public class Articles extends HttpServlet {
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		request.getRequestDispatcher("articles/articles.jsp").forward(request, response);
+		request.getRequestDispatcher("/pages/articles/articles.jsp").forward(request, response);
 	}
 
 }

@@ -44,7 +44,7 @@ public class Register extends HttpServlet {
 			System.out.println("Erreur dans nos serveurs");
 		}
 		
-		request.getRequestDispatcher("register.jsp").forward(request, response);
+		request.getRequestDispatcher("/pages/register.jsp").forward(request, response);
 	}
 	
 	@Override

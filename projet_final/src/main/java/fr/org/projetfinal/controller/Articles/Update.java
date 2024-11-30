@@ -49,7 +49,7 @@ public class Update extends HttpServlet {
 			List<Categorie> categories =  categorieMetier.findAllCategories();
 			request.setAttribute("categories", categories);
 			request.setAttribute("article", article);
-			request.getRequestDispatcher("/articles/updateArticle.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/articles/updateArticle.jsp").forward(request, response);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -80,7 +80,7 @@ public class Update extends HttpServlet {
 			
 			messageError = "Le format doit être png ou jpg";
 			request.setAttribute("messageError", messageError);
-			request.getRequestDispatcher("/articles/updateArticle.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/articles/updateArticle.jsp").forward(request, response);
 		} 
 		//On stocke les données dans un objet Article
 		Article article = new Article();

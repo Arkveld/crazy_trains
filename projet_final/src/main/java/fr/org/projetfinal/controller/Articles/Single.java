@@ -44,10 +44,10 @@ public class Single extends HttpServlet {
 			if(article != null) {
 				request.setAttribute("article", article);
 				request.setAttribute("commentaires", commentaires);
-				request.getRequestDispatcher("/articles/single.jsp").forward(request, response);
+				request.getRequestDispatcher("/pages/articles/single.jsp").forward(request, response);
 				
 			} else {
-				request.getRequestDispatcher("error.jsp").forward(request, response);
+				request.getRequestDispatcher("/pages/error.jsp").forward(request, response);
 			}
 			
 		} catch(Exception e) {

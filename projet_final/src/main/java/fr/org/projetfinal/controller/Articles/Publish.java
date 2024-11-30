@@ -46,7 +46,7 @@ public class Publish extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			request.getRequestDispatcher("/articles/saveArticle.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/articles/saveArticle.jsp").forward(request, response);
 		}
 		
 	}
@@ -71,7 +71,7 @@ public class Publish extends HttpServlet {
 		if(!typeFile) {
 			messageError = "Le format doit être png ou jpg";
 			request.setAttribute("messageError", messageError);
-			request.getRequestDispatcher("/articles/saveArticle.jsp").forward(request, response);
+			request.getRequestDispatcher("/pages/articles/saveArticle.jsp").forward(request, response);
 		} else {
 			
 			//On stocke les données dans un objet Article
