@@ -1,12 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="mt" tagdir="/WEB-INF/tags" %>
+<mt:template title="Profil supprimé">
+	<jsp:attribute name="content">
+		<p> Votre profil a été supprimé </p>
+	</jsp:attribute>
+</mt:template>
 
-</body>
-</html>
