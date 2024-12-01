@@ -21,8 +21,4 @@ public interface IArticleMetier {
 	public boolean verifyFormatFile(String filename);
 	//Upload du fichier
 	public void uploadFile(Part part);
-	//
-		
-
-
 }

@@ -66,10 +66,7 @@ public class ArticleDaoImp implements IArticleDao {
 			Document document = new Document("id", id).append("url", article.getImageUrl()).append("legende", article.getLegende());
 			collection.insertOne(document);
 			
-			//On ferme la session
-			//prepareStatement.close();
-			//mongoConnection.close();
-			//connection.close();
+			
 		
 		} catch(Exception e) {
 			e.printStackTrace();

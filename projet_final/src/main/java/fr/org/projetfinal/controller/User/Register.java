@@ -101,12 +101,5 @@ public class Register extends HttpServlet {
 			e.printStackTrace();
 			System.out.println("Erreur dans le serveur");
 		}
-		
-
-		
-		
-		
-		
 	}
-
 }

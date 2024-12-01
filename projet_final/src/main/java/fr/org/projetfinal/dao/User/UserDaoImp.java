@@ -48,8 +48,7 @@ public class UserDaoImp implements IUserDao {
 			
 			prepareStatement.executeUpdate();
 			
-			//prepareStatement.close();
-			//connection.close();
+			
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -90,9 +89,7 @@ public class UserDaoImp implements IUserDao {
 				user.setPassword(password);
 			}
 			
-			//resultSet.close();
-			//preparedStatement.close();
-			//connection.close();
+			
 			
 			return user;
 			
@@ -101,7 +98,6 @@ public class UserDaoImp implements IUserDao {
 		}
 		
 		return null;
-		//SELECT * FROM `users` INNER JOIN questions ON users.question_id = questions.id WHERE mail='admin.test@mail.com'; 
 	}
 
 	@Override
