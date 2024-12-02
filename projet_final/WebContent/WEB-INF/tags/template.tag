@@ -14,23 +14,28 @@
 	<body>
 		<!-- Navigation -->
 		<nav>
+			<div> Logo </div>
 			<span> &#9776; </span>
-			<a href="/projet_final/register"> S'inscrire</a> 
-			<a href="/projet_final/articles">Articles</a>
-			<c:choose>
-				<c:when test="${sessionScope.user.role == 'user'}">
-					<a href="/projet_final/profil"> Profil </a>
-					<a href="/projet_final/logout"> Logout </a>
-				</c:when>
-				<c:when test="${sessionScope.user.role == 'admin'}">
-					<a href="/projet_final/admin"> Administration </a>
-					<a href="/projet_final/logout"> Logout </a>
-				</c:when>
-				<c:otherwise>
-					<a href="/projet_final/login"> Login </a>
-				</c:otherwise>
-			</c:choose>
-			<a href="#"> Contact </a>
+			
+			<div>
+				<a href="/projet_final/"> Acceuil </a> 
+				<a href="/projet_final/articles">Articles</a>
+				<c:choose>
+					<c:when test="${sessionScope.user.role == 'user'}">
+						<a href="/projet_final/profil"> Profil </a>
+						<a href="/projet_final/logout"> Logout </a>
+					</c:when>
+					<c:when test="${sessionScope.user.role == 'admin'}">
+						<a href="/projet_final/admin"> Administration </a>
+						<a href="/projet_final/logout"> Logout </a>
+					</c:when>
+					<c:otherwise>
+						<a href="/projet_final/login"> Login </a>
+					</c:otherwise>
+				</c:choose>
+				<a href="#"> Contact </a>
+			</div>
+			
 		</nav>
 	
 		<!-- Header -->
