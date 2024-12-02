@@ -9,10 +9,12 @@
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>${title}</title>
+	<link rel="stylesheet"  href="assets/css/style.css" type="text/css"/>
 	</head>
 	<body>
 		<!-- Navigation -->
 		<nav>
+			<span> &#9776; </span>
 			<a href="/projet_final/register"> S'inscrire</a> 
 			<a href="/projet_final/articles">Articles</a>
 			<c:choose>
