@@ -2,16 +2,31 @@
 /****************** Général *******************/
 * {
 	box-sizing: border-box;
-}
-
-body{
 	margin: 0;
 	padding: 0;
 }
 
+body{
+	height: 500vh;
+	font-family: sans-serif;
+}
 
+/***** Logo ********/
+.logo {
+	display: block;
+	width: 60px;
+}
+
+.logo img {
+	width: 100%;
+}
 
 /************** Navigation *******************/
-
+.menu {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	box-shadow: 1px 1px 15px black;
+}
 
 /************* Responsive ********************/

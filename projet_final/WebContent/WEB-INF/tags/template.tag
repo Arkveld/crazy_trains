@@ -12,28 +12,18 @@
 	<link rel="stylesheet"  href="assets/css/style.css" type="text/css"/>
 	</head>
 	<body>
+	
 		<!-- Navigation -->
-		<nav>
-			<div> Logo </div>
-			<span> &#9776; </span>
-			
-			<div>
-				<a href="/projet_final/"> Acceuil </a> 
-				<a href="/projet_final/articles">Articles</a>
-				<c:choose>
-					<c:when test="${sessionScope.user.role == 'user'}">
-						<a href="/projet_final/profil"> Profil </a>
-						<a href="/projet_final/logout"> Logout </a>
-					</c:when>
-					<c:when test="${sessionScope.user.role == 'admin'}">
-						<a href="/projet_final/admin"> Administration </a>
-						<a href="/projet_final/logout"> Logout </a>
-					</c:when>
-					<c:otherwise>
-						<a href="/projet_final/login"> Login </a>
-					</c:otherwise>
-				</c:choose>
-				<a href="#"> Contact </a>
+		<nav class="menu">
+			<div class="menu-container">
+				<a href="#" class="logo">
+					<img alt="logo du site" src="assets/images/logo.png"/>
+				</a>
+				<ul class="menu-list"> 
+					<li> <a href="#"> Accueil</a></li>
+					<li><a href="#">Articles</a></li>
+					<li> <a href="#">À propos</a> </li>
+				</ul>
 			</div>
 			
 		</nav>
@@ -53,3 +43,17 @@
 	
 	</body>
 </html>
+
+<!-- 	<c:choose>
+					<c:when test="${sessionScope.user.role == 'user'}">
+						<a href="/projet_final/profil"> Profil </a>
+						<a href="/projet_final/logout"> Logout </a>
+					</c:when>
+					<c:when test="${sessionScope.user.role == 'admin'}">
+						<a href="/projet_final/admin"> Administration </a>
+						<a href="/projet_final/logout"> Logout </a>
+					</c:when>
+					<c:otherwise>
+						<a href="/projet_final/login"> Login </a>
+					</c:otherwise>
+				</c:choose> -->
