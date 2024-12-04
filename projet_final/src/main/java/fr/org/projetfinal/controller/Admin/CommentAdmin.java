@@ -13,8 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import fr.org.projetfinal.metier.CommentaireMetierImp;
 import fr.org.projetfinal.metier.ICommentaireMetier;
-import fr.org.projetfinal.metier.IUserMetier;
-import fr.org.projetfinal.metier.UserMetierImp;
+
 import fr.org.projetfinal.model.Commentaire;
 import fr.org.projetfinal.model.User;
 

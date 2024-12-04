@@ -60,7 +60,7 @@ public class UserDaoImp implements IUserDao {
 
 	@Override
 	public User getUserByEmail(String mail) throws Exception {
-		// TODO Auto-generated method stub
+		
 		
 		//Connexion
 		this.connection = MyConnectionSQL.getInstance();

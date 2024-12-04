@@ -24,12 +24,12 @@
       		</div>
       		<div class="menu">
         		<div class="logo">
-          			<a href="#">
-            			<img src="${pageContext.request.contextPath}/assets/images/logo.png" alt="logo du site" />
+          			<a href="/projet_final/">
+            			<img src="assets/images/logo.png" alt="logo du site" />
           			</a>
         		</div>
         		<ul>
-          			<li><a href="#">Acceuil</a></li>
+          			<li><a href="/projet_final/">Acceuil</a></li>
           			<li><a href="#">Catégories</a></li>
           			<li>
           				<c:choose>
@@ -50,7 +50,7 @@
         		</ul>
       		</div>
     	</nav>
-    	<header>
+    	<header style="background-image: url('assets/images/header.jpg');">
       	<h1>Crazy trains</h1>
     	</header>
     	<!-- Content  -->

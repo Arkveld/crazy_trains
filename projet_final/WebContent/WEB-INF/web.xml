@@ -31,14 +31,16 @@
   <!-- png -->
   <servlet-mapping>
   		<servlet-name> default</servlet-name>
-  		<url-pattern>/assets/images/*.png</url-pattern>
+  		<url-pattern>*.png</url-pattern>
   	</servlet-mapping>
   	
-   <!-- jpg -->
   <servlet-mapping>
   		<servlet-name> default</servlet-name>
-  		<url-pattern>/assets/images/*.jpg</url-pattern>
+  		<url-pattern>*.jpg</url-pattern>
   	</servlet-mapping>
+  	
+  	
+  	
 	
 	<!-- Servlets  -->
 	
