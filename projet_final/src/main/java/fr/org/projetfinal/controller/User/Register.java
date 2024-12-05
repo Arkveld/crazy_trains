@@ -103,10 +103,12 @@ public class Register extends HttpServlet {
 		//Inscription (Envoi de l'user vers la BDD)
 		try {
 			metier.register(user);
-			response.sendRedirect("/projet_final/success");
+			request.getRequestDispatcher("/pages/success.jsp").forward(request, response);
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("Erreur dans le serveur");
 		}
+		
 	}
 }

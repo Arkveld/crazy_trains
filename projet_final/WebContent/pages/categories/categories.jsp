@@ -3,16 +3,18 @@
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags" %>
 <mt:template title="Catégories">
 	<jsp:attribute name="content">
-	
-		<h2> Catégories </h2>
-		<section class="categories">
+		<ul class="breadcump">
+			<li><a href="/projet_final/">Home</a></li>
+			<li> Catégories</li>
+		</ul>
+		<div class="categories">
 			<div class="trains" style="background-image: url('assets/images/trains.jpg');">
 				<a href="/projet_final/trains"> Trains </a>
 			</div>
 			<div class="trams" style="background-image: url('assets/images/trams.jpg');">
 				<a href="/projet_final/tramways"> Tramways </a>
 			</div>
-		</section>
+		</div>
 	</jsp:attribute>
 </mt:template>
 

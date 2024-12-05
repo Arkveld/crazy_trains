@@ -16,6 +16,33 @@ a {
   text-decoration: none;
 }
 
+/*** Breadcump ***/
+
+.breadcump {
+	display:inline-flex;
+	gap:5px;
+	margin-top: 10px;
+	padding: 5px;
+	list-style: none;
+}
+
+.breadcump a {
+	font-weight:bolder;
+	color: white;
+}
+
+.breadcump li+li:before {
+	content: ">";
+	padding: 8px;
+	color: white;
+}
+
+.breadcump a:hover {
+	text-decoration: underline;
+	color: goldenrod;
+}
+
+
 /*** Logo ***/
 .logo {
   width: 60px;
@@ -126,9 +153,6 @@ header h1 {
 	background-size: cover;
 	border-radius: 10px;
 	font-size:3.5em;
-	
-	
-	
 }
 
 .trains a, .trams a {
@@ -148,10 +172,37 @@ header h1 {
 
 /*** Articles ***/
 
-.articles {
-	border: 1px solid red;
+.list {
+	display: flex;
+	align-items: flex-start;
+	margin-top: 20px;
 }
 
+.list article {
+	padding: 15px;
+	width: 20%;
+	text-align: center;
+}
+
+.list article p {
+	margin-bottom: 15px;
+	text-align: justify;
+}
+
+.list article a {
+	padding: 10px;
+  	text-align: center;
+  	text-decoration: underline;
+  	border-radius: 10px;
+  	color: goldenrod;
+  	border: 1px solid goldenrod;
+}
+
+.list article a:hover {
+	background-color: yellow;
+  	color: black;
+  	text-decoration: none;
+}
 
 /**** Responsive *****/
 
@@ -191,7 +242,21 @@ header h1 {
   	width: 70%;
   }
   
+  .list {
+  	flex-direction: column;
+  }
+  
+  .list article {
+	width: 90%;
+	padding: 15px;
+	margin: 15px;
+	
+  }
+  
+  
 }
+
+/*** Tablette et ordinateur ****/
 
 @media screen and (min-width: 769px) {
   #burger {
@@ -225,4 +290,35 @@ header h1 {
     width: 60%;
     padding: 10px;
   }
+}
+
+/**** Tablette ****/
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+	
+	.list{
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 10px;
+	}
+	
+	.list article {
+		width: 45%;
+	}
+}
+
+/*** Ordinateur ****/
+
+@media screen and (min-width: 1024px) {
+	
+	.list{
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+	
+	.list article {
+		width: 28%;
+	}
+	
 }
