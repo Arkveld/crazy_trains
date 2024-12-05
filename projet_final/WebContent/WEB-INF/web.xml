@@ -151,6 +151,16 @@
 		<url-pattern> /adminComment </url-pattern>
 	</servlet-mapping>
 	
+	<!-- Catégories -->
+	<servlet>
+		<servlet-name> Categories</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Categories.Categories</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Categories</servlet-name>
+		<url-pattern> /categories </url-pattern>
+	</servlet-mapping>
+	
 	<!--  Articles -->
 	
 	<servlet>
