@@ -7,10 +7,20 @@
 			<li><a href="/projet_final/articles"> Articles</a></li>
 			<li> ${article.titre}</li>
 		</ul>
-		<h2> <c:out value="${article.titre}"/> </h2>
-		<p> <c:out value="${article.contenu}"/></p>
-		<h4> <c:out value="legende:${article.legende}"/></h4>
-		<h2> Commentaire </h2>
+		
+		<main>
+			<article class="single">
+				<h2> <c:out value="${article.titre}"/> </h2>
+				<h4> Publié le <c:out value="${article.date}"/></h4>
+				<figure>
+					<img alt="" src="assets/images/${article.imageUrl}">
+					<figcaption> <c:out value="${article.legende}"/> </figcaption>
+				</figure>
+				<p> <c:out value="${article.contenu}"/></p>
+			</article>
+		</main>
+		
+		<h2> Commentaires </h2>
 		<div>
 			<c:choose>
 				<c:when test="${commentaires != null}">

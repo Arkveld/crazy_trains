@@ -7,6 +7,7 @@
 }
 
 body {
+  min-height: 100vh;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: whitesmoke;
   background-color: #093683;
@@ -204,6 +205,35 @@ header h1 {
   	text-decoration: none;
 }
 
+/*** Single ***/
+main {
+	padding: 10px;
+}
+
+.single {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 10px;
+	margin: 0 auto;
+}
+
+.single figure {
+	height: 50%;
+}
+
+.single figure img {
+	width: 100%;
+}
+
+.single figure figcaption {
+	margin-top: -5px;
+	padding: 5px;
+	font-style: italic;
+	text-align: center;
+	background-color: black;
+}
+
 /**** Responsive *****/
 
 @media screen and (max-width: 768px) {
@@ -253,6 +283,10 @@ header h1 {
 	
   }
   
+  .single{
+  	width: 80%;
+  }
+  
   
 }
 
@@ -289,6 +323,13 @@ header h1 {
   .description {
     width: 60%;
     padding: 10px;
+  }
+  
+  
+  
+  .single figure{
+  	margin: 0 auto;
+  	width: 50%;
   }
 }
 
