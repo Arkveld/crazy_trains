@@ -16,6 +16,7 @@ a {
   text-decoration: none;
 }
 
+/*** Logo ***/
 .logo {
   width: 60px;
 }
@@ -24,9 +25,12 @@ a {
   width: 100%;
 }
 
+/*** Navigation ***/
+
 #burger p {
   padding: 10px;
 }
+
 
 .menu ul {
   list-style: none;
@@ -37,7 +41,7 @@ a {
   color: whitesmoke;
 }
 
-/*** Navigation ***/
+
 nav {
   position: sticky;
   top: 0;
@@ -101,6 +105,54 @@ header h1 {
   text-decoration: none;
 }
 
+/**** Categorie *****/
+
+.categories {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	height: 60vh;
+	padding: 10px;
+}
+
+.trains, .trams {
+	display:flex;
+	justify-content:center;
+	align-items: center;
+	height: 50%;
+	width: 30%;
+	background-position:center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 10px;
+	font-size:3.5em;
+	
+	
+	
+}
+
+.trains a, .trams a {
+	display: flex;
+  	height: 100%;
+  	width: 100%;
+  	justify-content: center;
+  	align-items: center;
+  	opacity: 0;
+}
+
+.trains:hover a,  .trams:hover a {
+	background-color: rgba(0,0,0,0.6);
+	color: white;
+	opacity: 1
+}
+
+/*** Articles ***/
+
+.articles {
+	border: 1px solid red;
+}
+
+
 /**** Responsive *****/
 
 @media screen and (max-width: 768px) {
@@ -128,6 +180,17 @@ header h1 {
   .img-home img {
     width: 100%;
   }
+  
+  /** Section **/
+  .categories {
+  	flex-direction: column;
+  	gap: 20px;
+  }
+  
+  .trains, .trams {
+  	width: 70%;
+  }
+  
 }
 
 @media screen and (min-width: 769px) {

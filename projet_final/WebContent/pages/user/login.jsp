@@ -13,6 +13,7 @@
 				<input type="password" name="password"/>
 			</div>
 			<input type="submit" value="login"/>
+			<p>${messageError != null ? messageError : "" } </p>
 		</form>
 		<a href="/projet_final/"> Accueil </a>
 	</jsp:attribute>

@@ -21,6 +21,7 @@ public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private IUserMetier userMetier;
 	private IQuestionMetier questionMetier;
+	private String messageError;
 	
 	@Override
 	public void init() throws ServletException {
@@ -56,6 +57,8 @@ public class Login extends HttpServlet {
 				
 				request.getRequestDispatcher("/pages/user/question.jsp").forward(request, response);
 			} else {
+				messageError = "Mail ou mot de passe incorrecte";
+				request.setAttribute("messageError", messageError);
 				request.getRequestDispatcher("/pages/user/login.jsp").forward(request, response);
 			}
 			

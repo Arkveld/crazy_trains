@@ -64,6 +64,7 @@ public class Register extends HttpServlet {
 		boolean inputNom = metier.verifyInput("^[a-zA-Z]{1,32}$", nom);
 		boolean inputPrenom = metier.verifyInput("^[a-zA-Z]{1,32}$", prenom);
 		boolean inputMail = metier.verifyInput("^[a-z]{1,32}\\.[a-zA-z]{1,32}\\@[a-z]{1,10}\\.[a-z]{1,3}$", mail);
+		boolean inputPassword = metier.verifyInput("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\\W)(?!.* ).{12,16}$", password);
 		
 		if(!inputNom) {
 			messageError = "Nom invalide";
@@ -79,6 +80,12 @@ public class Register extends HttpServlet {
 		
 		if(!inputMail) {
 			messageError = "Mail invalide";
+			request.setAttribute("messageError", messageError);
+			response.sendRedirect("/projet_final/register");
+		}
+		
+		if(!inputPassword) {
+			messageError = "Password invalide";
 			request.setAttribute("messageError", messageError);
 			response.sendRedirect("/projet_final/register");
 		}

@@ -5,7 +5,7 @@
 	<jsp:attribute name="content">
 		<section class="home">
       		<div class="img-home">
-        		<img src="assets/images/tram.jpg" alt="tramway" />
+        		<img src="assets/images/home.jpg" alt="tramway" />
       		</div>
       		<div class="description">
         		<h2>Bienvenue en gare</h2>
