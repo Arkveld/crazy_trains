@@ -30,7 +30,7 @@
         		</div>
         		<ul>
           			<li><a href="/projet_final/">Acceuil</a></li>
-          			<li><a href="#">Catégories</a></li>
+          			<li><a href="/projet_final/categories">Catégories</a></li>
           			<li>
           				<c:choose>
 							<c:when test="${sessionScope.user.role == 'user'}">

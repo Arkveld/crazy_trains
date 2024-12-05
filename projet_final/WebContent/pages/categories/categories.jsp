@@ -4,5 +4,10 @@
 <mt:template title="Catégories">
 	<jsp:attribute name="content">
 		<h1> Page catégories </h1>
+		<section>
+			<c:forEach items="${categories}" var="categorie">
+				<a href="/projet_final/${categorie.nom_categorie.toLowerCase()}"> <c:out value="${categorie.nom_categorie}"/> </a>
+			</c:forEach>
+		</section>
 	</jsp:attribute>
 </mt:template>

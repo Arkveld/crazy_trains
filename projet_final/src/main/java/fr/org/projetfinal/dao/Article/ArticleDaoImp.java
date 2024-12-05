@@ -219,6 +219,40 @@ public class ArticleDaoImp implements IArticleDao {
 		
 		
 	}
+
+	@Override
+	public List<Article> getArticleByCategorie(int id) throws Exception {
+		
+		List<Article> articles = new ArrayList<Article>();
+		//MySql
+		this.connection = MyConnectionSQL.getInstance();
+		
+		try {
+			String query = "SELECT * FROM articles WHERE categorie_id = ?";
+			PreparedStatement ps = connection.prepareStatement(query);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				Article article = new Article();
+				article.setId(rs.getInt("id"));
+				article.setTitre(rs.getString("titre"));
+				article.setContenu(rs.getString("contenu"));
+				article.setDate(rs.getString("date"));
+				
+				articles.add(article);
+			}
+			
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return articles;
+	}
+
+
 	
 	
 	

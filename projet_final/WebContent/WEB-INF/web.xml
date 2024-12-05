@@ -175,6 +175,24 @@
 		<url-pattern> /categories </url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name> Trains</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Categories.Trains</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Trains</servlet-name>
+		<url-pattern> /trains </url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name> Tramways</servlet-name>
+		<servlet-class> fr.org.projetfinal.controller.Categories.Tramways</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name> Tramways</servlet-name>
+		<url-pattern> /tramways </url-pattern>
+	</servlet-mapping>
+	
 	<!--  Articles -->
 	
 	<servlet>
