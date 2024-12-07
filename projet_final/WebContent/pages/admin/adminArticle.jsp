@@ -2,6 +2,7 @@
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags" %>
 <mt:template title="Espace article">
 	<jsp:attribute name="content">
+		<h2>Gestion des articles </h2>
 		<table>
 			<thead>
 				<tr>

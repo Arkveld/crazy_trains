@@ -17,6 +17,10 @@ a {
   text-decoration: none;
 }
 
+h2{
+	text-align:center;
+}
+
 /*** Breadcump ***/
 
 .breadcump {
@@ -234,7 +238,45 @@ main {
 	background-color: black;
 }
 
+
+/**** Formulaire ****/
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: cornflowerblue;
+  color: black;
+  min-height: 20vh;
+  padding: 10px;
+  margin: auto;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 10px;
+}
+
+input {
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+input[type="submit"] {
+  margin: auto;
+  width: 20%;
+}
+
+
+
 /**** Responsive *****/
+
+/**** Mobile ****/
 
 @media screen and (max-width: 768px) {
   .menu {
@@ -287,6 +329,10 @@ main {
   	width: 80%;
   }
   
+  form {
+    width: 80%;
+  }
+  
   
 }
 
@@ -330,6 +376,10 @@ main {
   .single figure{
   	margin: 0 auto;
   	width: 50%;
+  }
+  
+  form {
+    width: 40%;
   }
 }
 

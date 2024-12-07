@@ -3,7 +3,7 @@
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags"%>
 <mt:template title="Inscription">
 	<jsp:attribute name="content">
-		<h2>Formulaire d'inscription</h2>
+		<h2>Inscrivez-vous</h2>
 		<form method="post" action="register">
 			<div>
 				<label for="nom"> Nom </label> <input type="text" name="nom"

@@ -17,6 +17,7 @@
 					<figcaption> <c:out value="${article.legende}"/> </figcaption>
 				</figure>
 				<p> <c:out value="${article.contenu}"/></p>
+				<p> <c:out value="${article.contenu}"/></p>
 			</article>
 		</main>
 		

@@ -2,11 +2,7 @@
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags" %>
 <mt:template title="Gestion des utilisateurs">
 	<jsp:attribute name="content">
-		<h1>Page administration</h1>
-		<a href="/projet_final/"> Accueil </a>
-		<a href="/projet_final/logout"> Logout </a>
-		<p> Page de gestion des utilisateurs </p>
-	
+		<h2>Gestion des utilisateurs </h2>	
 		<table>
 			<thead>
 				<tr>

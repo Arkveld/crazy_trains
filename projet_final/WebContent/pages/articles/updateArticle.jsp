@@ -2,6 +2,7 @@
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags" %>
 <mt:template title="Modifier un article">
 	<jsp:attribute name="content">
+		<h2> Modifier un article</h2>
 		<form method="post" action="update" enctype="multipart/form-data">
 			<div>
 				<label for="titre"> Votre titre </label>

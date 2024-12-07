@@ -2,7 +2,7 @@
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags" %>
 <mt:template title="Ajouter un article">
 	<jsp:attribute name="content">
-		<h1> Ajouter un article</h1>
+		<h2> Ajouter un article</h2>
 		<form method="post" action="publish" enctype="multipart/form-data">
 			<div>
 				<label for="titre"> Votre titre </label>

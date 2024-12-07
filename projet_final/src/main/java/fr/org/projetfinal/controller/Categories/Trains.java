@@ -26,14 +26,15 @@ public class Trains extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
-		request.getRequestDispatcher("/pages/categories/trains.jsp").forward(request, response);
-		/**try {
+		try {
 			List<Article> articles = articleMetier.findArticlesByCategorie(1);
 			request.setAttribute("articles", articles);
-			
+		
 		}catch(Exception e) {
-			e.printStackTrace();
-		}**/
+		e.printStackTrace();
+		}
+		request.getRequestDispatcher("/pages/categories/trains.jsp").forward(request, response);
+		
 		
 		
 	}

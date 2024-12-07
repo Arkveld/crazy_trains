@@ -2,6 +2,7 @@
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags" %>
 <mt:template title="Espace commentaires">
 	<jsp:attribute name="content">
+		<h2>Gestion des commentaires </h2>
 		<table>
 			<thead>
 				<tr>
