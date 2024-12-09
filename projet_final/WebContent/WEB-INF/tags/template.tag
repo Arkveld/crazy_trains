@@ -31,22 +31,19 @@
         		<ul>
           			<li><a href="/projet_final/">Acceuil</a></li>
           			<li><a href="/projet_final/categories">Catégories</a></li>
-          			<li>
-          				<c:choose>
-							<c:when test="${sessionScope.user.role == 'user'}">
-								<a href="/projet_final/profil"> Profil </a>
-								<a href="/projet_final/logout"> Logout </a>
-							</c:when>
-							<c:when test="${sessionScope.user.role == 'admin'}">
-								<a href="/projet_final/admin"> Administration </a>
-								<a href="/projet_final/logout"> Logout </a>
-							</c:when>
-							<c:otherwise>
-								<a href="/projet_final/login"> Login </a>
-							</c:otherwise>
-						</c:choose>
-          			</li>
-          			<li><a href="#">Contact</a></li>
+          			<c:choose>
+						<c:when test="${sessionScope.user.role == 'user'}">
+							<li><a href="/projet_final/profil"> Profil </a></li>
+							<li><a href="/projet_final/logout"> Se deconnecter</a></li>
+						</c:when>
+						<c:when test="${sessionScope.user.role == 'admin'}">
+							<li><a href="/projet_final/admin"> Administration</a><li>
+							<li><a href="/projet_final/logout"> Se deconnecter </a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="/projet_final/login"> Login </a></li>
+						</c:otherwise>
+					</c:choose>
         		</ul>
       		</div>
     	</nav>
@@ -57,16 +54,21 @@
 		<jsp:invoke fragment="content"></jsp:invoke>
 	
 		<!-- Footer -->
-		<footer>
-      		<div>
-        		<p>Réseau sociaux</p>
-      		</div>
-      		<nav>
-        		<a href="#"> Accueil</a>
-        		<a href="#"> Mentions légales </a>
-        		<a href="#"> Contact </a>
-     		</nav>
-   		</footer>
+		    <footer>
+      			<a href="/projet_final/"> Accueil</a>
+      			<a href="/projet_final/register"> Inscription </a>
+     			<a href="#"> Mentions légales </a>
+      			<a href="#"> Politique de confidentialité</a>
+      			<div>
+        		<p>Contact</p>
+        		<ul>
+          			<li>Tel: 01 25 58 24 06 32</li>
+          			<li>Mail: mon.mail@gmail.com</li>
+          			<li>Adresse: 65 rue de la plaine</li>
+          			<li>78523 Le Pecq</li>
+        		</ul>
+     		 </div>
+    	</footer>
 	
 		<script type="text/javascript" src="assets/js/app.js"></script>
 	</body>

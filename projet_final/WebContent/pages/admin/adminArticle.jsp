@@ -13,19 +13,18 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<c:forEach items="${articles}" var="article">
+				<c:forEach items="${articles}" var="article">
+					<tr>
 						<td><c:out value="${article.titre}" /></td>
-						<td><c:out value="${article.contenu}" /></td>
+						<td><c:out value="${article.contenu.substring(0, 120)}" /></td>
 						<td><c:out value="${article.date}" /></td>
 						<td><a href="/projet_final/update?id=${article.id}">
 								Modifier</a> <a href="/projet_final/delete?id=${article.id}">
 								Supprimer</a></td>
-					</c:forEach>
-				</tr>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
-		<a href="/projet_final/admin"> retour administration </a>
 	</jsp:attribute>
 </mt:template>
 

@@ -2,7 +2,7 @@
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags" %>
 <mt:template title="Home">
 	<jsp:attribute name="content">
-		<p> Commentaire supprimé </p>
+		<p class="result"> Commentaire supprimé </p>
 	</jsp:attribute>
 </mt:template>
 

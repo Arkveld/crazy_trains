@@ -13,18 +13,17 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<c:forEach items="${users}" var="user">
+				<c:forEach items="${users}" var="user">
+					<tr>
 						<td><c:out value="${user.nom}" /></td>
 						<td><c:out value="${user.prenom}" /></td>
 						<td><c:out value="${user.email}" /></td>
 						<td> <a href="/projet_final/deleteProfil?id=${user.id}">
 								Supprimer</a></td>
-					</c:forEach>
-				</tr>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
-		<a href="/projet_final/admin"> retour administration </a>
 	</jsp:attribute>
 </mt:template>
 

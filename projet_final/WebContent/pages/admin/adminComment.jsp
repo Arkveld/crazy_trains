@@ -23,7 +23,6 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<a href="/projet_final/admin"> retour administration </a>
 	</jsp:attribute>
 </mt:template>
 

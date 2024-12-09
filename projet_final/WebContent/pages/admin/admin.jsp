@@ -2,7 +2,7 @@
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags" %>
 <mt:template title="Administration">
 	<jsp:attribute name="content">
-		<div>
+		<div class="admin">
 			<a href="/projet_final/adminUser"> Espace Utilisateurs </a>
 			<a href="/projet_final/adminArticle"> Espace Articles </a>
 			<a href="/projet_final/adminComment"> Espace Commentaire </a>
