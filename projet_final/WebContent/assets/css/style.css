@@ -107,7 +107,7 @@ header {
   justify-content: center;
   align-items: center;
   min-height: 30vh;
-  background-position: center;
+  background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
   /**width: 100vw;**/
@@ -116,7 +116,7 @@ header {
 header h1 {
   font-size: 4rem;
   font-family: Play;
-  color: whitesmoke;
+  color: rgba(0,0,0,0.5);
 }
 
 /*** Content ****/
