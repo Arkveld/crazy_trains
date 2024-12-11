@@ -1,3 +1,9 @@
+/**** Import de polices ****/
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 /*** Reset ***/
 
 * {
@@ -8,20 +14,24 @@
 
 body {
   min-height: 100vh;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: whitesmoke;
   background-color: #093683;
+  font-family: Lora;
 }
 
 a {
+  font-family: Noto Sans;
   text-decoration: none;
 }
+
+
 
 ul {
   list-style: none;
 }
 
 h2{
+	font-family: Raleway;
 	text-align:center;
 }
 
@@ -75,6 +85,11 @@ h2{
 .menu a {
   text-decoration: none;
   color: whitesmoke;
+  transition: 0.8s ease;
+}
+
+.menu a:hover {
+	color: goldenrod;
 }
 
 
@@ -82,7 +97,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: #093683;
+  background-color: #299aff;
   box-shadow: 1px 1px 5px silver;
 }
 
@@ -99,9 +114,8 @@ header {
 }
 
 header h1 {
-  font-size: 3.5rem;
-  font-family: "Gill Sans";
-  opacity: 0.8;
+  font-size: 4rem;
+  font-family: Play;
   color: whitesmoke;
 }
 
@@ -282,7 +296,7 @@ footer {
   display: flex;
   padding: 10px;
   margin-top: 25px;
-  border-top: 1px solid white;
+  background-color: #299aff;
 }
 
 footer a {
@@ -301,9 +315,9 @@ footer div p {
 }
 
 
-/*** Admin ***/
+/*** Admin et profil ***/
 
-.admin {
+.admin, .profil {
 	height: 40vh;
 	display: flex;
 	align-items: center;
@@ -311,7 +325,7 @@ footer div p {
 	flex-direction: column;
 }
 
-.admin a {
+.admin a, .profil a {
 	margin: 15px;
 	padding: 15px;
 	border-radius: 10px;
@@ -319,7 +333,7 @@ footer div p {
 	background-color: goldenrod;
 }
 
-.admin a:hover {
+.admin a:hover, .profil a:hover {
 	box-shadow: 1px 1px 5px silver;
 }
 
@@ -332,6 +346,16 @@ table {
 td, th {
 	padding: 10px;
 	border: 1px solid white;
+}
+
+/*** result ****/
+.result {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 40vh;
+	font-size: 1.2rem;
+	font-weight: bolder;
 }
 
 
@@ -350,7 +374,7 @@ td, th {
     transition: 1.5s ease-in;
     height: 100vh;
     width: 30%;
-    background-color: #093683;
+    background-color: #299aff;
     box-shadow: 1px 1px 5px silver;
   }
 
@@ -440,7 +464,9 @@ td, th {
   }
   
   
-  
+  .single h2 {
+  	text-align: left;
+  }
   .single figure{
   	margin: 0 auto;
   	width: 50%;
@@ -454,10 +480,10 @@ td, th {
     display: flex;
     justify-content: space-around;
     padding: 10px;
-    border-top: 1px solid white;
+
   }
   
-  .admin {
+  .admin, .profil {
   	flex-direction: row;
   	justify-content: space-around;
   }
@@ -466,6 +492,8 @@ td, th {
   	width: 60%;
   }
 }
+
+
 
 /**** Tablette ****/
 

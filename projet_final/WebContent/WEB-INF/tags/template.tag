@@ -41,7 +41,7 @@
 							<li><a href="/projet_final/logout"> Se deconnecter </a></li>
 						</c:when>
 						<c:otherwise>
-							<li><a href="/projet_final/login"> Login </a></li>
+							<li><a href="/projet_final/login"> Se connecter </a></li>
 						</c:otherwise>
 					</c:choose>
         		</ul>
