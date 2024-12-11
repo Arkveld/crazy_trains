@@ -24,7 +24,7 @@
 				<label for="password"> Mot de passe </label> <input type="password"
 					name="password"
 					pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{12,16}"
-					required="required">
+					required="required" title="Votre mot de passe doit contenir minimum 12 caractères">
 					<p>${messageError != null ? messageError : "" } </p>
 			</div>
 			<div>
@@ -43,7 +43,13 @@
 			<input type="hidden" name="role" value="user" /> 
 			<input type="submit" value="Valider" />
 		</form>
-		<a href="/projet_final/"> Retour à l'accueil</a>
+		<div class="info-form">
+			<p> Votre mot de passe doit contenir minimum 12 caractères </p>
+			<p> Il doit avoir au moins une majuscule </p>
+			<p> Il doit avoir au moins une minuscule </p>
+			<p> Il doit avoir au moins un chiffre </p>
+			<p> Il doit avoir au moins un caractère spéciaux </p>
+		</div>
 	</jsp:attribute>
 </mt:template>
 
