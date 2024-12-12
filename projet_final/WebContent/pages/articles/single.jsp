@@ -31,10 +31,12 @@
 						<small> <c:out value=" Posté le ${commentaire.date}"/></small>
 					</c:forEach>
 				</c:when>
-				<c:otherwise> Soyer le premier à ajouter à un commentaire</c:otherwise>
+				<c:otherwise> 
+					<p> Soyer le premier à ajouter à un commentaire </p>
+				</c:otherwise>
 			</c:choose>
 		</div>
-		<a href="/projet_final/commentaire?id=${article.id}" style="color: whitesmoke"> Ajouter un commentaire</a>
+		<a href="/projet_final/commentaire?id=${article.id}" style="color: whitesmoke; text-decoration: underline;"> Ajouter un commentaire</a>
 	</jsp:attribute>
 </mt:template>
 
